@@ -55,17 +55,6 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,0,2,0,0">
           <item>
-           <widget class="QPushButton" name="pushButton_4">
-            <property name="text">
-             <string>Añadir usuario</string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>gotit-icons-r560/icons/edit_small_normal_hover.png</normaloff>gotit-icons-r560/icons/edit_small_normal_hover.png</iconset>
-            </property>
-           </widget>
-          </item>
-          <item>
            <widget class="QPushButton" name="pushButton_6">
             <property name="text">
              <string>Añadir mecanico</string>
@@ -73,6 +62,17 @@
             <property name="icon">
              <iconset>
               <normaloff>gotit-icons-r560/icons/edit_normal_hover.png</normaloff>gotit-icons-r560/icons/edit_normal_hover.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_4">
+            <property name="text">
+             <string>Añadir usuario</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>gotit-icons-r560/icons/edit_small_normal_hover.png</normaloff>gotit-icons-r560/icons/edit_small_normal_hover.png</iconset>
             </property>
            </widget>
           </item>
@@ -150,32 +150,12 @@
           <item>
            <widget class="QStackedWidget" name="stackedWidget">
             <widget class="QWidget" name="page_gestion_claves">
-             <layout class="QVBoxLayout" name="verticalLayout_4">
-              <item>
-               <widget class="QTableWidget" name="tableWidget">
-                <column>
-                 <property name="text">
-                  <string/>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Num</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>cas</string>
-                 </property>
-                </column>
-               </widget>
-              </item>
-             </layout>
+             <layout class="QVBoxLayout" name="verticalLayout_4"/>
             </widget>
             <widget class="QWidget" name="page_add_user"/>
             <widget class="QWidget" name="page_list_user"/>
             <widget class="QWidget" name="page_gestion_user"/>
-            <widget class="QWidget" name="page_del_user"/>
+            <widget class="QWidget" name="page_add_mecanic"/>
            </widget>
           </item>
          </layout>
