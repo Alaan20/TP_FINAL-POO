@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_autosoft(object):
+class Login(object):
     def setupUi(self, autosoft):
         
         autosoft.setWindowTitle("Autosoft 2.1")
@@ -76,7 +76,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     autosoft = QtWidgets.QDialog()
-    ui = Ui_autosoft()
+    ui = Login()
     ui.setupUi(autosoft)
     autosoft.show()
     sys.exit(app.exec_())
