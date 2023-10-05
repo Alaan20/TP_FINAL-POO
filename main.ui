@@ -444,7 +444,10 @@
                     <string/>
                    </property>
                    <property name="pixmap">
-                    <pixmap>../6.png</pixmap>
+                    <pixmap>10279manmechaniclightskintone_110677.ico</pixmap>
+                   </property>
+                   <property name="scaledContents">
+                    <bool>false</bool>
                    </property>
                   </widget>
                  </item>
