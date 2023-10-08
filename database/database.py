@@ -43,10 +43,10 @@ class PersonaDb:
         self._cursor.execute("INSERT INTO usuarios (usuario, contraseña, tipo) VALUES (?,?,?)",(persona._usuario,persona._contraseña,persona._tipo)) 
         self._conn.commit()
         
-    def leer(self,usuario):
-        self._cursor.execute("SELECT * FROM usuarios WHERE usuario=?",(usuario,))
-        row = self._cursor.fetchone()
-        return Persona(row[0],row[1],row[2])
+    def leer(usuario):
+        PersonaDb._cursor.execute("SELECT * FROM usuarios WHERE usuario=?",(usuario,))
+        row = PersonaDb._cursor.fetchone()
+        return row[0],row[1],row[2]
         
     def actualizar(self,persona):
         self._cursor.execute("UPDATE usuario=?, contraseña=? WHERE tipo=?",(persona._usuario,persona._contraseña,persona._tipo))
@@ -60,8 +60,8 @@ class PersonaDb:
 
 usuario1=Persona("admin","admin123","admin")
 usuario3=Persona("usuario12","pass123","usuario")
-# bd = PersonaDb()
-# # bd.crear(usuario1)
+bd = PersonaDb()
+# bd.crear(usuario1)
 # bd.buscar(usuario3._usuario)
 
 # if  bd.leer(usuario3._usuario) is not None:

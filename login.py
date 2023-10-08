@@ -12,7 +12,7 @@ def gui_login():
     if len(name)==0 or len(password)==0:
         login.error.setText("Por favor, ingrese un usuario y contraseña")  
     else:
-        if PersonaDb.leer(name) is not None:
+        if PersonaDb.leer(self,name) is not None:
             login.error.setText("Usuario o contraseña incorrectos")
 login.log_in.clicked.connect(gui_login)
 
