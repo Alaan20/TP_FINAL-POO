@@ -4,15 +4,16 @@ from database.database import Persona,PersonaDb
 app = QtWidgets.QApplication([])
 
 # Cargar el archivo .ui
-login = uic.loadUi('../login.ui')
+login = uic.loadUi('login.ui')
 
 def gui_login():
+    db = PersonaDb()
     name = login.user.text()
-    password = login.user.text()
+    password = login.password.text()
     if len(name)==0 or len(password)==0:
         login.error.setText("Por favor, ingrese un usuario y contraseña")  
     else:
-        if PersonaDb.leer(name) is not None:
+        if db.leer(name) is None:
             login.error.setText("Usuario o contraseña incorrectos")
 login.log_in.clicked.connect(gui_login)
 

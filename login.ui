@@ -164,7 +164,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>D:/Users/Administrador/Documents/GitHub/TP_FINAL-POO/4.png</pixmap>
+    <pixmap>logo de trabajo final.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
