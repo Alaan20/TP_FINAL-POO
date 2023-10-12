@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>530</width>
-    <height>432</height>
+    <width>413</width>
+    <height>410</height>
    </rect>
   </property>
   <property name="mouseTracking">
@@ -28,8 +28,8 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>330</y>
+     <x>180</x>
+     <y>340</y>
      <width>71</width>
      <height>21</height>
     </rect>
@@ -50,8 +50,8 @@
   <widget class="QLineEdit" name="password">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>290</y>
+     <x>110</x>
+     <y>300</y>
      <width>201</width>
      <height>20</height>
     </rect>
@@ -89,8 +89,8 @@
   <widget class="QLineEdit" name="user">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>220</y>
+     <x>110</x>
+     <y>230</y>
      <width>201</width>
      <height>21</height>
     </rect>
@@ -102,8 +102,8 @@
   <widget class="QLabel" name="user_2">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>190</y>
+     <x>110</x>
+     <y>200</y>
      <width>81</width>
      <height>16</height>
     </rect>
@@ -120,8 +120,8 @@
   <widget class="QLabel" name="password_2">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>260</y>
+     <x>110</x>
+     <y>270</y>
      <width>111</width>
      <height>16</height>
     </rect>
@@ -141,8 +141,8 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>380</y>
+     <x>120</x>
+     <y>390</y>
      <width>201</width>
      <height>20</height>
     </rect>
@@ -154,27 +154,30 @@
   <widget class="QLabel" name="image">
    <property name="geometry">
     <rect>
-     <x>-20</x>
-     <y>0</y>
-     <width>561</width>
-     <height>171</height>
+     <x>100</x>
+     <y>10</y>
+     <width>221</width>
+     <height>181</height>
     </rect>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>logo de trabajo final.png</pixmap>
+    <pixmap>icons/logo de trabajo final.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
+   </property>
+   <property name="wordWrap">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>350</y>
+     <x>0</x>
+     <y>360</y>
      <width>441</width>
      <height>31</height>
     </rect>
