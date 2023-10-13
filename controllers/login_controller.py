@@ -1,5 +1,5 @@
 from  PyQt5 import QtWidgets, uic
-from database.database import database
+from database import database
 from views import *
 # Iniciar la aplicación
 app = QtWidgets.QApplication([])
