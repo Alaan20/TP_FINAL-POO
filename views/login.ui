@@ -153,7 +153,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>icons/logo de trabajo final.png</pixmap>
+       <pixmap>../icons/login.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>

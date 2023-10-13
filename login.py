@@ -1,13 +1,14 @@
 from  PyQt5 import QtWidgets, uic
-from database.database import Persona,PersonaDb
+from database import database
+from views import *
 # Iniciar la aplicación
 app = QtWidgets.QApplication([])
 
 # Cargar el archivo .ui
-login = uic.loadUi('login.ui')
+login = uic.loadUi('views/login.ui')
 
 def gui_login():
-    db = PersonaDb()
+    db = database.PersonaDb()
     name = login.user.text()
     password = login.password.text()
     if len(name)==0 or len(password)==0:

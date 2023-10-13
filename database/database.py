@@ -1,8 +1,3 @@
-# chequear si la base de datos usuarios.db existe
-# si no existe, crearla
-import sqlite3
-import os.path
-from os import path
 import psycopg2
 
 def conectar_base_de_datos():
@@ -22,7 +17,6 @@ def conectar_base_de_datos():
     
 class PersonaDb:
     def __init__(self):
-        self._conn = sqlite3.connect('usuarios.db')
         self._cursor = self._conn.cursor()
     
     def crear(self,persona):
@@ -44,9 +38,6 @@ class PersonaDb:
     
         self._conn.close()
 
-usuario1=Persona("admin","admin123","admin")
-usuario3=Persona("usuario12","pass123","usuario")
-bd = PersonaDb()
 # bd.crear(usuario1)
 # bd.buscar(usuario3._usuario)
 
