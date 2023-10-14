@@ -1,23 +1,20 @@
 import psycopg2
+import sqlite3
 
-def conectar_base_de_datos():
-    try:
-        connection = psycopg2.connect(
+class Conection():
+    def __init__(self):
+        self._connection = psycopg2.connect(
             user="postgres",
             password="teclas",
             host="tpphost.duckdns.org",
             port="5432",
             database="[autosoft]"
         )
-        return connection
-    except (Exception, psycopg2.Error) as error:
-        print("Error al conectar a la base de datos:", error)
-        return None
-
-    
-class PersonaDb:
+        
+class PersonaDb(Conection):
     def __init__(self):
-        self._cursor = self._conn.cursor()
+        super().__init__()
+        self._cursor =  self._connection.cursor()
     
     def crear(self,persona):
         self._cursor.execute("INSERT INTO usuarios (usuario, contraseña, tipo) VALUES (?,?,?)",(persona._usuario,persona._contraseña,persona._tipo)) 
@@ -38,6 +35,13 @@ class PersonaDb:
     
         self._conn.close()
 
+db = PersonaDb()
+des = db.leer("admin","admin")
+if des is not None:
+    print("El usuario ya existe")
+else:
+    print("El usuario fue creado")
+    
 # bd.crear(usuario1)
 # bd.buscar(usuario3._usuario)
 

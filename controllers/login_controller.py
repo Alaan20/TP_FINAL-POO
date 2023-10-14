@@ -1,5 +1,5 @@
 from  PyQt5 import QtWidgets, uic
-from database import database
+from database.database import PersonaDb
 from views import *
 # Iniciar la aplicación
 app = QtWidgets.QApplication([])
@@ -8,7 +8,7 @@ app = QtWidgets.QApplication([])
 login = uic.loadUi('views/login.ui')
 
 def gui_login():
-    db = database.PersonaDb()
+    db = PersonaDb()
     name = login.user.text()
     password = login.password.text()
     if len(name)==0 or len(password)==0:
