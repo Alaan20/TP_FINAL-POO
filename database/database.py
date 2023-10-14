@@ -23,7 +23,7 @@ class PersonaDb(Conection):
     def leer(self,usuario,clave):
         self._cursor.execute(f"SELECT * FROM usuarios WHERE nombre_usuario = '{usuario}' AND contraseña = '{clave}'")
         row = self._cursor.fetchone()
-        return row[0],row[1],row[2]
+        return row
         
     def actualizar(self,persona):
         self._cursor.execute("UPDATE usuario=?, contraseña=? WHERE tipo=?",(persona._usuario,persona._contraseña,persona._tipo))
@@ -35,18 +35,9 @@ class PersonaDb(Conection):
     
         self._conn.close()
 
-db = PersonaDb()
-des = db.leer("admin","admin")
-if des is not None:
-    print("El usuario ya existe")
-else:
-    print("El usuario fue creado")
-    
-# bd.crear(usuario1)
-# bd.buscar(usuario3._usuario)
-
-# if  bd.leer(usuario3._usuario) is not None:
-#      print("El usuario ya existe")
+# db = PersonaDb()
+# des = db.leer("admin","admin")
+# if des is not None:
+#     print("El usuario ya existe")
 # else:
-#      bd.crear(usuario3)
-#      print("El usuario fue creado")
+#     print("El usuario fue creado")

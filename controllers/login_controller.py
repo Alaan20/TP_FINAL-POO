@@ -14,8 +14,10 @@ def gui_login():
     if len(name)==0 or len(password)==0:
         login.error.setText("Por favor, ingrese un usuario y contraseña")  
     else:
-        if db.leer(name) is None:
+        if db.leer(name,password) is None:
             login.error.setText("Usuario o contraseña incorrectos")
+        else:
+            login.error.setText("Iniciando sesión...")
 login.log_in.clicked.connect(gui_login)
 
 # Ejecutable
