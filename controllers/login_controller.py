@@ -8,35 +8,38 @@ db = PersonaDb()
 
 # Cargar el archivo .ui
 class Login():
-
-    def gui_login(self):
+    
+    def gui_login():
         name = login.user.text()
         password = login.password.text()
+        row = db.leer(name,password)
         
         if len(name)==0 or len(password)==0:
             login.error.setText("Por favor, ingrese un usuario y contraseña")  
         else:
-            if db.leer(name,password) is None:
+            if row is None:
                 login.error.setText("Usuario o contraseña incorrectos")
             else:
                 login.error.setStyleSheet("color: green")
                 login.error.setText("Iniciando sesión...")
-      
-            if str(db.leer(name,password)[11]) == str("admin"):
+            if str(row[11]) == str("admin"):
                 login.stackedWidget.setCurrentIndex(1)
-                login.log_in_1.clicked.connect(Login.show_page_2) 
-                # Login.show_page_2(self)
+                print(row)
+                login.log_in_1.clicked.connect(lambda: Login.show_page_2(list(row))) 
 
-    def show_page_2(self):
+    def show_page_2(row):
         name = login.user1.text()
         password = login.password1.text()
         
-
         if len(name)==0 or len(password)==0:
             login.error_1.setText("Por favor, ingrese un usuario y contraseña")
-        if name =="admin" and password =="admin":
-            login.error_1.setText("Ingrese un usuario y contraseña distintos")
-        
+        else:
+            if name =="admin" and password =="admin":
+                login.error_1.setText("Ingrese un usuario y contraseña distintos")
+            else:
+                row[2] = name
+                row[3] = password
+                db.actualizar(row)
                    
 login.log_in.clicked.connect(Login.gui_login)
 
