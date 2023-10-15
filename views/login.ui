@@ -31,6 +31,9 @@
      <height>441</height>
     </rect>
    </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
    <widget class="QWidget" name="page">
     <widget class="QFrame" name="frame">
      <property name="geometry">
@@ -47,7 +50,7 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QPushButton" name="log_in_3">
+     <widget class="QPushButton" name="log_in">
       <property name="enabled">
        <bool>true</bool>
       </property>

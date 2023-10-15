@@ -1,4 +1,5 @@
 from  PyQt5 import QtWidgets, uic
+import time
 from database.database import PersonaDb
 # Iniciar la aplicación
 app = QtWidgets.QApplication([])
@@ -19,7 +20,18 @@ class Login():
             else:
                 login.error.setStyleSheet("color: green")
                 login.error.setText("Iniciando sesión...")
-        login.log_in.clicked.connect(self.gui_login)
-    # Ejecutable
-    login.show()
-    app.exec()
+                
+                if str(db.leer(name,password)[11]) == str('admin'):
+                    print("hola")
+                    Login.show_page_2(self)
+
+    def show_page_2(self):
+        print("hola")
+        login.stackedWidget.setCurrentIndex(1)
+
+login.log_in.clicked.connect(Login.gui_login)
+login.show()
+app.exec()
+    # def gui_changePassword(self):
+    #     login.changePassword.clicked.connect(self.gui_changePassword)
+    # # Ejecutable
