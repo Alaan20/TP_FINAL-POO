@@ -268,7 +268,7 @@
        <string>nuevos</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="log_in_4">
+     <widget class="QPushButton" name="log_in_1">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -293,7 +293,7 @@
        <string>Aceptar</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="user_7">
+     <widget class="QLineEdit" name="user1">
       <property name="geometry">
        <rect>
         <x>60</x>
@@ -407,7 +407,7 @@
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
-     <widget class="QLineEdit" name="password_8">
+     <widget class="QLineEdit" name="password1">
       <property name="geometry">
        <rect>
         <x>60</x>
@@ -446,7 +446,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="error_4">
+     <widget class="QLabel" name="error_1">
       <property name="enabled">
        <bool>true</bool>
       </property>

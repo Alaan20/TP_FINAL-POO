@@ -12,6 +12,7 @@ class Login():
     def gui_login(self):
         name = login.user.text()
         password = login.password.text()
+        
         if len(name)==0 or len(password)==0:
             login.error.setText("Por favor, ingrese un usuario y contraseña")  
         else:
@@ -20,16 +21,25 @@ class Login():
             else:
                 login.error.setStyleSheet("color: green")
                 login.error.setText("Iniciando sesión...")
-                
-                if str(db.leer(name,password)[11]) == str('admin'):
-                    print("hola")
-                    Login.show_page_2(self)
+      
+            if str(db.leer(name,password)[11]) == str("admin"):
+                login.stackedWidget.setCurrentIndex(1)
+                login.log_in_1.clicked.connect(Login.show_page_2) 
+                # Login.show_page_2(self)
 
     def show_page_2(self):
-        print("hola")
-        login.stackedWidget.setCurrentIndex(1)
+        name = login.user1.text()
+        password = login.password1.text()
+        
 
+        if len(name)==0 or len(password)==0:
+            login.error_1.setText("Por favor, ingrese un usuario y contraseña")
+        if name =="admin" and password =="admin":
+            login.error_1.setText("Ingrese un usuario y contraseña distintos")
+        
+                   
 login.log_in.clicked.connect(Login.gui_login)
+
 login.show()
 app.exec()
     # def gui_changePassword(self):
