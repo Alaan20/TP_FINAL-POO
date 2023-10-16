@@ -22,7 +22,7 @@ class Login():
             else:
                 login.error.setStyleSheet("color: green")
                 login.error.setText("Iniciando sesión...")
-            if str(row[11]) == str("admin"):
+            if str(row[10]) == str("admin"):
                 login.stackedWidget.setCurrentIndex(1)
                 print(row)
                 login.log_in_1.clicked.connect(lambda: Login.show_page_2(list(row))) 
@@ -31,6 +31,7 @@ class Login():
         name = login.user1.text()
         password = login.password1.text()
         
+        print("hh")
         if len(name)==0 or len(password)==0:
             login.error_1.setText("Por favor, ingrese un usuario y contraseña")
         else:
