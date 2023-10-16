@@ -22,10 +22,11 @@ class Login():
             else:
                 login.error.setStyleSheet("color: green")
                 login.error.setText("Iniciando sesión...")
-            if str(row[10]) == str("admin"):
-                login.stackedWidget.setCurrentIndex(1)
                 print(row)
-                login.log_in_1.clicked.connect(lambda: Login.show_page_2(list(row))) 
+                if str(row[1]) == str("admin") and row[2] == str("admin"):
+                    login.stackedWidget.setCurrentIndex(1)
+                    print(row)
+                    login.log_in_1.clicked.connect(lambda: Login.show_page_2(list(row))) 
 
     def show_page_2(row):
         name = login.user1.text()
