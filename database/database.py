@@ -26,9 +26,10 @@ class PersonaDb(Conection):
         return row
         
     def actualizar(self,row):
-        self._cursor.execute("SELECT * FROM usuarios WHERE id_usuario = %s",(row[0],))
+        self._cursor.execute("SELECT * FROM usuarios WHERE id_usuario = %s", (row[0],))
         if self._cursor.fetchone() is not None:
-            self._cursor.execute("UPDATE usuarios SET usuario = %s, clave = %s,nombre = %s, apellido = %s, dni = %s, correo_electronico = %s, nro_telefono = %s, id_rol = %s, estado = %s, tipo = %s, dir_calle = %s, dir_ciudad = %s, dir_provincia = %s, dir_codigopostal = %s, dir_pais = %s", (row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11],row[12],row[13],row[14],row[15]))
+            print("FFFFFFF")
+            self._cursor.execute(f"UPDATE usuarios SET usuario ='row[1]', clave ='row[2]',nombre ='row[3]', apellido ='row[4]', dni ='row[5]', correo_electronico ='row[6]', nro_telefono ='row[7]', id_rol ='row[8]', estado ='row[9]', tipo ='row[10]', dir_calle ='row[11]', dir_ciudad ='row[12]', dir_provincia ='row[13]', dir_codigopostal ='row[14]', dir_pais ='row[15]' WHERE id_usuario = %s",(row[0],))
             self._connection.commit()
             return True
         else:
