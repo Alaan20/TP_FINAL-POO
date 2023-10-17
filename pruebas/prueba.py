@@ -9,7 +9,7 @@ class MainWindow (QMainWindow):
     def __init__(self):
         super(QMainWindow, self).__init__()
         self._connection = psycopg2.connect(
-            user="postgres",
+            user ="postgres",
             password="teclas",
             host="tpphost.duckdns.org",
             port="5432",
@@ -29,6 +29,10 @@ class MainWindow (QMainWindow):
         btn2.pressed.connect(self.inserto)
         layout_2.addWidget(btn2)
         
+        btn3 = QPushButton("Eliminar Usuario")
+        btn3.pressed.connect(self.eliminar)
+        layout_2.addWidget(btn3)
+        
         self.widget = QWidget()
         self.widget.setLayout(layout_2)
         self.setCentralWidget(self.widget)
@@ -40,6 +44,8 @@ class MainWindow (QMainWindow):
             )
         consulta = self._cursor.fetchone()
         lbl1 = QLabel(f"Hola {consulta[2]+ ' ' + consulta[3]}")
+        self.nombre = consulta[0]
+        self.contra = consulta[1]
         layout_3 = QVBoxLayout()
         layout_3.addWidget(lbl1)
         
@@ -50,31 +56,23 @@ class MainWindow (QMainWindow):
         layout_3.addWidget(self.passw2)
         layout_3.addWidget(btn3)
         btn3.clicked.connect(self.actualizo)
-        self.clave = self.passw2.text()
-        self.usuario = self.user2.text()
         wid = QWidget()
         wid.setLayout(layout_3)
         self.setCentralWidget(wid)
 
     def actualizo(self):
         self._cursor =self._connection.cursor()
-        self._cursor.execute(f"UPDATE usuarios  SET nombre ='{self.user2.text()}',apellido ='{self.passw2.text()}' where clave='{self.clave}' and usuario='{self.usuario}'")
+        self._cursor.execute(f"UPDATE usuarios SET nombre ='{str(self.user2.text())}',apellido ='{str(self.passw2.text())}' where clave='{self.contra}' and usuario='{self.nombre}'")
         self.imprimo_actu()
     
     def imprimo_actu (self):
         self._cursor =self._connection.cursor()
         self._cursor.execute(
-            f"select usuario,clave,nombre,apellido from usuarios where clave='{self.clave}' and usuario='{self.usuario}'"
+            f"select usuario,clave,nombre,apellido from usuarios where clave='{self.contra}' and usuario='{self.nombre}'"
             )
         consulta2 = self._cursor.fetchone()
-        lbl1 = QLabel(f"Hola {consulta2[2]+ ' ' + consulta2[3]}")
-        lbl2 = QLabel(f"Usuario: {consulta2[0]}, Contraseña: {consulta2[1]}")
-        layout_3 = QVBoxLayout()
-        layout_3.addWidget(lbl1)
-        layout_3.addWidget(lbl2)
-        wid2 = QWidget()
-        wid2.setLayout(layout_3)
-        self.setCentralWidget(wid2)
+        print(consulta2)
+        self._connection.commit()
 
     def inserto (self):
         layout= QVBoxLayout()
@@ -100,10 +98,34 @@ class MainWindow (QMainWindow):
         w = QWidget()
         w.setLayout(layout)
         self.setCentralWidget(w)
+    
+    def eliminar(self):
+        layout_4 = QVBoxLayout()
+        self.user4 = QLineEdit('nombre_usuario del usuario a eliminar')
+        self.passw4 = QLineEdit('clave del usuario a eliminar')
+        btn4 = QPushButton("Presione para eliminar")
+        layout_4.addWidget(self.user4)
+        layout_4.addWidget(self.passw4)
+        layout_4.addWidget(btn4)
+        btn4.clicked.connect(self.actualizo_borrado)
+        wid3 = QWidget()
+        wid3.setLayout(layout_4)
+        self.setCentralWidget(wid3)
+
+    def actualizo_borrado (self):
+        self._cursor =self._connection.cursor()
+        self._cursor.execute(f"DELETE FROM usuarios WHERE usuario= '{self.user4.text()}' and clave = '{self.passw4.text()}'")
+        self._connection.commit()
+        self.imprimo_actu_borrado()
+    
+    def imprimo_actu_borrado(self):
+        self._cursor =self._connection.cursor()
+        self._cursor.execute("select * from usuarios")
+        consulta = self._cursor.fetchall()
+        print(consulta)
 
     def reviso(self):
         self.tabla.selectRow(self.tabla.currentRow())
-
 
 app = QApplication(sys.argv)
 window = QMainWindow()
