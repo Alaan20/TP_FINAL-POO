@@ -36,10 +36,10 @@ class Login():
             if name =="admin" and password =="admin":
                 login.error_1.setText("Ingrese un usuario y contraseña distintos")
             else:
-                row[2] = name
-                row[3] = password
+                row[1] = name
+                row[2] = password
                 db.actualizar(row)
-                   
+
 login.log_in.clicked.connect(Login.gui_login)
 
 login.show()
