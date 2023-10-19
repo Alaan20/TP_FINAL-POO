@@ -38,6 +38,7 @@ class Login():
             else:
                 row[1] = name
                 row[2] = password
+                print(row[6])
                 db.actualizar(row)
 
 login.log_in.clicked.connect(Login.gui_login)
