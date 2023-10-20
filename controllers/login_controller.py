@@ -26,11 +26,11 @@ class Login():
                 if str(row[1]) == str("admin") and row[2] == str("admin"):
                     login.stackedWidget.setCurrentIndex(1)
                     login.log_in_1.clicked.connect(lambda: Login.show_page_2(list(row))) 
-                
+        
                 time.sleep(1)
-                login.close()
-                app.quit()
-                login.log_in.clicked.connect(main.show())
+                #login.close()
+                #app.quit()
+                #login.log_in.clicked.connect(main.show())
         # login.stackedWidget.setCurrentIndex(2)
         # login.log_in_2.clicked.connect(lambda: Login.show_page_3(row))
         
@@ -58,9 +58,9 @@ class Login():
                     # login.log_in_2.clicked.connect(lambda: Login.show_page_3(row))
     
     # def show_page_3(row):
-login.log_in.clicked.connect(Login.gui_login)
-
-login.show()
+#login.log_in.clicked.connect(Login.gui_login)
+main.show()
+#login.show()
 app.exec()
     # def gui_changePassword(self):
     #     login.changePassword.clicked.connect(self.gui_changePassword)
