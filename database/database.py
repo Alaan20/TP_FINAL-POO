@@ -29,23 +29,14 @@ class PersonaDb(Conection):
         self._cursor.execute(f"SELECT * FROM usuarios WHERE id_usuario = '{row[0]}'")
         self.setcolumn(row)
         if self._cursor.fetchone() is not None:
-            self._cursor.execute(f"UPDATE usuarios SET usuario ={row[1]},clave ={row[2]},nombre ={row[3]},apellido ={row[4]},dni ={row[5]},correo_electronico={row[6]} WHERE id_usuario = {row[0]}")
+            self._cursor.execute(f"UPDATE usuarios SET usuario ='{row[1]}', clave ='{row[2]}', nombre ='{row[3]}', apellido ='{row[4]}', dni ='{row[5]}', correo_electronico='{row[6]}' WHERE id_usuario = '{row[0]}'")
             self._connection.commit()
             return True
         else:
             return False
-    def setcolumn(self,row):
-        cadena=""
-        long = 0
-        for fila in row:
-            if fila==None:
-                cadena+="null"
-                fila=cadena
-            else:
-                cadena=f"'{fila}'"
-                fila=cadena
-            row[long]=fila
-            long += 1
+    
+    def setcolumn(self, row):
+        row = [f"'{fila}'" if fila is not None else "null" for fila in row]
         return row
         
     def borrado(self,usuario):
