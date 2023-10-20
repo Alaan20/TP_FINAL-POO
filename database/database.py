@@ -42,5 +42,4 @@ class PersonaDb(Conection):
     def borrado(self,usuario):
         self._cursor.execute(f"DELETE FROM usuarios WHERE usuario= '{usuario}'")
         self._conn.commit()
-    
         self._conn.close()

@@ -4,6 +4,7 @@ from database.database import PersonaDb
 # Iniciar la aplicación
 app = QtWidgets.QApplication([])
 login = uic.loadUi('views/login.ui')
+main = uic.loadUi('views/main.ui')
 db = PersonaDb()
 
 # Cargar el archivo .ui
@@ -25,7 +26,14 @@ class Login():
                 if str(row[1]) == str("admin") and row[2] == str("admin"):
                     login.stackedWidget.setCurrentIndex(1)
                     login.log_in_1.clicked.connect(lambda: Login.show_page_2(list(row))) 
-
+                
+                time.sleep(1)
+                login.close()
+                app.quit()
+                login.log_in.clicked.connect(main.show())
+        # login.stackedWidget.setCurrentIndex(2)
+        # login.log_in_2.clicked.connect(lambda: Login.show_page_3(row))
+        
     def show_page_2(row):
         name = login.user1.text()
         password = login.password1.text()
@@ -38,9 +46,18 @@ class Login():
             else:
                 row[1] = name
                 row[2] = password
-                print(row[6])
-                db.actualizar(row)
-
+                if db.actualizar(row) is False:
+                 login.error_1.setText("Error, revise tu conexión a internet")
+                else:
+                    login.error_1.setStyleSheet("color: green")
+                    login.error_1.setText("Contraseña cambiada con éxito")
+                    time.sleep(1)
+                    login.close()
+                    app.quit()
+                    # login.stackedWidget.setCurrentIndex(2)
+                    # login.log_in_2.clicked.connect(lambda: Login.show_page_3(row))
+    
+    # def show_page_3(row):
 login.log_in.clicked.connect(Login.gui_login)
 
 login.show()
