@@ -43,3 +43,8 @@ class PersonaDb(Conection):
         self._cursor.execute(f"DELETE FROM usuarios WHERE usuario= '{usuario}'")
         self._conn.commit()
         self._conn.close()
+
+    def leer_todos(self):
+        self._cursor.execute("SELECT * FROM usuarios")
+        rows = self._cursor.fetchall()
+        return rows
