@@ -72,7 +72,7 @@ class Login():
         login.log_in_1.clicked.connect(lambda: self.login_controller.show_page_2(list()))
         login.show()
         app.exec()
-         
+
 class Main():
 
     def show_page_3(row): 
