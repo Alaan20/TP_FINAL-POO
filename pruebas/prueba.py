@@ -3,6 +3,8 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 import sys
 
+class seleccion(Exception):
+    pass
 
 class MainWindow (QMainWindow):
     
@@ -180,16 +182,7 @@ class MainWindow (QMainWindow):
         group_layout4.addWidget(self.cliente)
         group_layout4.addWidget(self.mecanico)
         group_layout4.addWidget(self.administrativo)
-        self._id_rol=int(0)
-        
-        if self.cliente.isChecked():
-            self._id_rol=int(0)
-        elif self.mecanico.isChecked():
-            self._id_rol=int(1)
-        elif self.administrativo.isChecked():
-            self._id_rol=int(2)
-        # else :
-        #     raise QMessageBox.critical("error","seleccione un tipo de rol")
+        self._id_rol=None
         
         rol.setLayout(group_layout4)
         
@@ -210,11 +203,38 @@ class MainWindow (QMainWindow):
         self.setWindowTitle("agregar usuario")
         
     def agregar_usuario(self):
-        # lista=[]
-        # lista.append(self.)
-        self._cursor =self._connection.cursor()
-        self._cursor.execute(f"insert into usuarios (usuario,clave,nombre,apellido,dni,id_rol) values ('{self._nombre_usuario.text()}','{self._contrasenia.text()}','{self._nombre.text()}','{self._apellido.text()}','{self._dni.text()}','{self._id_rol}')")
-        self._connection.commit()
+        lista=[]
+        lista.append(self._nombre)
+        lista.append(self._contrasenia)
+        lista.append(self._nombre)
+        lista.append(self._apellido)
+        lista.append(self._dni)
+        lista.append(self._email)
+        lista.append(self._nro_telefono)
+        
+        try:
+            if self.cliente.isChecked():
+                self._id_rol=int(0)
+            elif self.mecanico.isChecked():
+                self._id_rol=int(1)
+            elif self.administrativo.isChecked():
+                self._id_rol=int(2)
+            else:
+                raise seleccion("seleccione un rol")
+            
+            lista.append(self._id_rol)
+            for i in range(len(lista)):
+                if not lista[i]:
+                    lista[i]+='null'
+            
+            print(self._id_rol)
+            self._cursor =self._connection.cursor()
+            self._cursor.execute(f"insert into usuarios (usuario,clave,nombre,apellido,dni,id_rol,estado) values ('{self._nombre_usuario.text()}','{self._contrasenia.text()}','{self._nombre.text()}','{self._apellido.text()}','{self._dni.text()}','{self._id_rol}','a')")
+            self._connection.commit()
+        
+        except seleccion as e:
+            QMessageBox.critical(self,"error",str(e))
+        
         
 
     def reviso(self):
