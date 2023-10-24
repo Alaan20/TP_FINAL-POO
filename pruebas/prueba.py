@@ -186,8 +186,10 @@ class MainWindow (QMainWindow):
         
         rol.setLayout(group_layout4)
         
-        agregar=QPushButton("agregar ususario")
-        agregar.clicked.connect(self.agregar_usuario)
+        
+        self.agregar=QPushButton("agregar ususario")
+        self.agregar.clicked.connect(self.agregar_usuario)
+        
         
         layout=QVBoxLayout()
         layout.addWidget(lbl)
@@ -196,23 +198,21 @@ class MainWindow (QMainWindow):
         layout.addWidget(datos_personales)
         layout.addWidget(contacto)
         layout.addWidget(rol)
-        layout.addWidget(agregar)
+        layout.addWidget(self.agregar)
         contenedor=QWidget()
         contenedor.setLayout(layout)
         self.setCentralWidget(contenedor)
         self.setWindowTitle("agregar usuario")
         
-    def agregar_usuario(self):
-        lista=[]
-        lista.append(self._nombre)
-        lista.append(self._contrasenia)
-        lista.append(self._nombre)
-        lista.append(self._apellido)
-        lista.append(self._dni)
-        lista.append(self._email)
-        lista.append(self._nro_telefono)
+    def validar_datos(self,variable,lista:list):
+            if not variable:
+                raise seleccion("campos obligatorios vacios")
+            lista.append(variable)
         
+    def agregar_usuario(self):
+        llave=True
         try:
+            lista=[]
             if self.cliente.isChecked():
                 self._id_rol=int(0)
             elif self.mecanico.isChecked():
@@ -222,16 +222,24 @@ class MainWindow (QMainWindow):
             else:
                 raise seleccion("seleccione un rol")
             
-            lista.append(self._id_rol)
-            for i in range(len(lista)):
-                if not lista[i]:
-                    lista[i]+='null'
-            
-            print(self._id_rol)
-            self._cursor =self._connection.cursor()
-            self._cursor.execute(f"insert into usuarios (usuario,clave,nombre,apellido,dni,id_rol,estado) values ('{self._nombre_usuario.text()}','{self._contrasenia.text()}','{self._nombre.text()}','{self._apellido.text()}','{self._dni.text()}','{self._id_rol}','a')")
-            self._connection.commit()
-        
+            try:
+                self.validar_datos(self._nombre_usuario.text(),lista)
+                self.validar_datos(self._contrasenia.text(),lista)
+                self.validar_datos(self._nombre.text(),lista)
+                self.validar_datos(self._apellido.text(),lista)
+                self.validar_datos(self._dni.text(),lista)
+            except seleccion as e:
+                llave=False
+                QMessageBox.critical(self,"error",str(e))
+            if llave==True:
+                lista.append(self._id_rol)
+                for i in range(len(lista)):
+                    if not lista[i]:
+                        lista[i]+='null'
+                self._cursor =self._connection.cursor()
+                self._cursor.execute(f"insert into usuarios (usuario,clave,nombre,apellido,dni,id_rol,estado) values ('{self._nombre_usuario.text()}','{self._contrasenia.text()}','{self._nombre.text()}','{self._apellido.text()}','{self._dni.text()}','{self._id_rol}','a')")
+                self._connection.commit()
+                print(lista)
         except seleccion as e:
             QMessageBox.critical(self,"error",str(e))
         
