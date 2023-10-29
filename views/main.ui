@@ -68,7 +68,7 @@
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,0,0,0,2,0,0,0">
+         <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,0,0,2,0,0">
           <property name="spacing">
            <number>24</number>
           </property>
@@ -96,16 +96,6 @@
              </size>
             </property>
            </spacer>
-          </item>
-          <item>
-           <widget class="QFrame" name="frame_3">
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-           </widget>
           </item>
           <item>
            <widget class="QPushButton" name="pushButton_6">
@@ -143,22 +133,11 @@
           <item>
            <widget class="QPushButton" name="pushButton_3">
             <property name="text">
-             <string>Gestion de usuarios</string>
+             <string>Listado de mecanicos</string>
             </property>
             <property name="icon">
              <iconset>
               <normaloff>../icons/admin_normal_hover.png</normaloff>../icons/admin_normal_hover.png</iconset>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_2">
-            <property name="text">
-             <string>Gestion de mecanicos</string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>../icons/advanced_normal_hover.png</normaloff>../icons/advanced_normal_hover.png</iconset>
             </property>
            </widget>
           </item>
@@ -227,7 +206,7 @@
              <bool>false</bool>
             </property>
             <property name="currentIndex">
-             <number>2</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="page_mecanic">
              <widget class="QFrame" name="frame_25">
@@ -316,30 +295,6 @@
                </rect>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_17">
-               <item>
-                <spacer name="horizontalSpacer_29">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QPushButton" name="pushButton_18">
-                 <property name="text">
-                  <string>Añadir</string>
-                 </property>
-                 <property name="icon">
-                  <iconset>
-                   <normaloff>../icons/add_normal_hover.png</normaloff>../icons/add_normal_hover.png</iconset>
-                 </property>
-                </widget>
-               </item>
                <item>
                 <spacer name="horizontalSpacer_30">
                  <property name="orientation">
@@ -707,30 +662,6 @@
                </rect>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_11">
-               <item>
-                <spacer name="horizontalSpacer_15">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QPushButton" name="pushButton_1">
-                 <property name="text">
-                  <string>Añadir</string>
-                 </property>
-                 <property name="icon">
-                  <iconset>
-                   <normaloff>../icons/add_normal_hover.png</normaloff>../icons/add_normal_hover.png</iconset>
-                 </property>
-                </widget>
-               </item>
                <item>
                 <spacer name="horizontalSpacer_16">
                  <property name="orientation">
@@ -1882,7 +1813,174 @@
              </widget>
             </widget>
             <widget class="QWidget" name="page_gestion_user">
-             <layout class="QHBoxLayout" name="horizontalLayout_5"/>
+             <layout class="QHBoxLayout" name="horizontalLayout_5">
+              <item>
+               <widget class="QFrame" name="frame_2">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <widget class="QLabel" name="password_7">
+                 <property name="geometry">
+                  <rect>
+                   <x>210</x>
+                   <y>440</y>
+                   <width>201</width>
+                   <height>20</height>
+                  </rect>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>10</pointsize>
+                   <weight>50</weight>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Nueva clave:</string>
+                 </property>
+                </widget>
+                <widget class="QLineEdit" name="password1">
+                 <property name="geometry">
+                  <rect>
+                   <x>210</x>
+                   <y>460</y>
+                   <width>201</width>
+                   <height>20</height>
+                  </rect>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <stylestrategy>PreferDefault</stylestrategy>
+                  </font>
+                 </property>
+                 <property name="tabletTracking">
+                  <bool>true</bool>
+                 </property>
+                 <property name="contextMenuPolicy">
+                  <enum>Qt::ActionsContextMenu</enum>
+                 </property>
+                 <property name="autoFillBackground">
+                  <bool>false</bool>
+                 </property>
+                 <property name="inputMethodHints">
+                  <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="echoMode">
+                  <enum>QLineEdit::Password</enum>
+                 </property>
+                 <property name="dragEnabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="user_8">
+                 <property name="geometry">
+                  <rect>
+                   <x>210</x>
+                   <y>370</y>
+                   <width>101</width>
+                   <height>16</height>
+                  </rect>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>10</pointsize>
+                   <weight>50</weight>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Nuevo usuario:</string>
+                 </property>
+                </widget>
+                <widget class="QPushButton" name="log_in_1">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="geometry">
+                  <rect>
+                   <x>270</x>
+                   <y>510</y>
+                   <width>71</width>
+                   <height>21</height>
+                  </rect>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <italic>false</italic>
+                   <bold>true</bold>
+                   <underline>false</underline>
+                   <strikeout>false</strikeout>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Aceptar</string>
+                 </property>
+                </widget>
+                <widget class="QLineEdit" name="user1">
+                 <property name="geometry">
+                  <rect>
+                   <x>210</x>
+                   <y>390</y>
+                   <width>201</width>
+                   <height>21</height>
+                  </rect>
+                 </property>
+                 <property name="mouseTracking">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_6">
+                 <property name="geometry">
+                  <rect>
+                   <x>140</x>
+                   <y>330</y>
+                   <width>331</width>
+                   <height>20</height>
+                  </rect>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>10</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Por favor, ingrese un nuevo usuario y contraseña</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label">
+                 <property name="geometry">
+                  <rect>
+                   <x>150</x>
+                   <y>60</y>
+                   <width>301</width>
+                   <height>241</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="pixmap">
+                  <pixmap>../icons/login.svg</pixmap>
+                 </property>
+                 <property name="scaledContents">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </widget>
           </item>
