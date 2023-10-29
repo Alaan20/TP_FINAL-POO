@@ -33,7 +33,7 @@ class LoginController(): # Logica de negocio
             if str(row[1]) == str("admin") and row[2] == str("admin"):
                 LoginController.show_page_2(list(row))
             
-            Main.show_page_3(list(row))
+            #Main.show_page_3(list(row))
             self.login_ui.close()
         
         except Exception as e:
@@ -59,7 +59,7 @@ class LoginController(): # Logica de negocio
             self.login_ui.error_1.setText("Contraseña cambiada con éxito")
             time.sleep(1)
             self.login_ui.close()
-            Main.show_page_3(row)
+            #Main.show_page_3(row)
         
         except Exception as e:
             self.login_ui.error_1.setText(str(e))
