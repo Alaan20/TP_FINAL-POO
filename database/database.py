@@ -23,6 +23,7 @@ class PersonaDb(Conection):
     def leer(self,usuario,clave):
         self._cursor.execute(f"SELECT * FROM usuarios WHERE usuario = '{usuario}' AND clave = '{clave}'")
         row = self._cursor.fetchone()
+        print(row)
         return row
         
     def actualizar(self,row):
