@@ -1,3 +1,5 @@
+from login_controller import *
+
 class Main():
     def __init__(self):    
         self.main = main

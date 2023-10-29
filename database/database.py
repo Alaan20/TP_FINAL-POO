@@ -23,7 +23,6 @@ class PersonaDb(Conection):
     def leer(self,usuario,clave):
         self._cursor.execute(f"SELECT * FROM usuarios WHERE usuario = '{usuario}' AND clave = '{clave}'")
         row = self._cursor.fetchone()
-        print(row)
         return row
         
     def actualizar(self,row):
@@ -49,3 +48,32 @@ class PersonaDb(Conection):
         self._cursor.execute("SELECT * FROM usuarios")
         rows = self._cursor.fetchall()
         return rows
+
+class Permisosdb(Conection):
+    def __init__(self):
+        super().__init__()
+        self._cursor =  self._connection.cursor()
+    
+    def crear(self,rol):
+        self._cursor.execute(f"INSERT INTO roles (nombre, descripcion) VALUES ({rol._nombre},{rol._descripcion})") 
+        self._conn.commit()
+        
+    def leer(self,nombre):
+        self._cursor.execute(f"SELECT * FROM roles WHERE nombre = '{nombre}'")
+        row = self._cursor.fetchone()
+        return row
+        
+    def actualizar(self,row):
+        self._cursor.execute(f"SELECT * FROM roles WHERE id_rol = '{row[0]}'")
+        self.setcolumn(row)
+        if self._cursor.fetchone() is not None:
+            self._cursor.execute(f"UPDATE roles SET nombre ='{row[1]}', descripcion ='{row[2]}' WHERE id_rol = '{row[0]}'")
+            self._connection.commit()
+            return True
+        else:
+            return False
+    
+    def setcolumn(self, row):
+        row = [f"'{fila}'" if fila is not None else "null" for fila in row]
+        return row
+        
