@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>782</width>
-    <height>624</height>
+    <height>590</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -206,7 +206,7 @@
              <bool>false</bool>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="page_mecanic">
              <widget class="QFrame" name="frame_25">
@@ -1822,31 +1822,75 @@
                 <property name="frameShadow">
                  <enum>QFrame::Raised</enum>
                 </property>
-                <widget class="QLabel" name="password_7">
+                <widget class="QPushButton" name="log_in_1">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
                  <property name="geometry">
                   <rect>
-                   <x>210</x>
-                   <y>440</y>
-                   <width>201</width>
+                   <x>260</x>
+                   <y>380</y>
+                   <width>71</width>
+                   <height>21</height>
+                  </rect>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <italic>false</italic>
+                   <bold>true</bold>
+                   <underline>false</underline>
+                   <strikeout>false</strikeout>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Aceptar</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_6">
+                 <property name="geometry">
+                  <rect>
+                   <x>200</x>
+                   <y>240</y>
+                   <width>331</width>
                    <height>20</height>
                   </rect>
                  </property>
                  <property name="font">
                   <font>
                    <pointsize>10</pointsize>
-                   <weight>50</weight>
-                   <bold>false</bold>
+                   <weight>75</weight>
+                   <bold>true</bold>
                   </font>
                  </property>
                  <property name="text">
-                  <string>Nueva clave:</string>
+                  <string>Por favor, ingrese un nuevo usuario y contraseña</string>
                  </property>
                 </widget>
-                <widget class="QLineEdit" name="password1">
+                <widget class="QLabel" name="label">
                  <property name="geometry">
                   <rect>
-                   <x>210</x>
-                   <y>460</y>
+                   <x>200</x>
+                   <y>20</y>
+                   <width>251</width>
+                   <height>201</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="pixmap">
+                  <pixmap>../icons/login.svg</pixmap>
+                 </property>
+                 <property name="scaledContents">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+                <widget class="QLineEdit" name="password1_2">
+                 <property name="geometry">
+                  <rect>
+                   <x>200</x>
+                   <y>340</y>
                    <width>201</width>
                    <height>20</height>
                   </rect>
@@ -1881,11 +1925,31 @@
                   <bool>true</bool>
                  </property>
                 </widget>
-                <widget class="QLabel" name="user_8">
+                <widget class="QLabel" name="password_8">
                  <property name="geometry">
                   <rect>
-                   <x>210</x>
-                   <y>370</y>
+                   <x>200</x>
+                   <y>320</y>
+                   <width>201</width>
+                   <height>20</height>
+                  </rect>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>10</pointsize>
+                   <weight>50</weight>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Nueva clave:</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="user_9">
+                 <property name="geometry">
+                  <rect>
+                   <x>200</x>
+                   <y>270</y>
                    <width>101</width>
                    <height>16</height>
                   </rect>
@@ -1901,80 +1965,16 @@
                   <string>Nuevo usuario:</string>
                  </property>
                 </widget>
-                <widget class="QPushButton" name="log_in_1">
-                 <property name="enabled">
-                  <bool>true</bool>
-                 </property>
+                <widget class="QLineEdit" name="user1_2">
                  <property name="geometry">
                   <rect>
-                   <x>270</x>
-                   <y>510</y>
-                   <width>71</width>
-                   <height>21</height>
-                  </rect>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <weight>75</weight>
-                   <italic>false</italic>
-                   <bold>true</bold>
-                   <underline>false</underline>
-                   <strikeout>false</strikeout>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>Aceptar</string>
-                 </property>
-                </widget>
-                <widget class="QLineEdit" name="user1">
-                 <property name="geometry">
-                  <rect>
-                   <x>210</x>
-                   <y>390</y>
+                   <x>200</x>
+                   <y>290</y>
                    <width>201</width>
                    <height>21</height>
                   </rect>
                  </property>
                  <property name="mouseTracking">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-                <widget class="QLabel" name="label_6">
-                 <property name="geometry">
-                  <rect>
-                   <x>140</x>
-                   <y>330</y>
-                   <width>331</width>
-                   <height>20</height>
-                  </rect>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <pointsize>10</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>Por favor, ingrese un nuevo usuario y contraseña</string>
-                 </property>
-                </widget>
-                <widget class="QLabel" name="label">
-                 <property name="geometry">
-                  <rect>
-                   <x>150</x>
-                   <y>60</y>
-                   <width>301</width>
-                   <height>241</height>
-                  </rect>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>../icons/login.svg</pixmap>
-                 </property>
-                 <property name="scaledContents">
                   <bool>true</bool>
                  </property>
                 </widget>
