@@ -86,16 +86,16 @@ class MainWindow (QMainWindow):
 
     def inserto (self):
         layout= QVBoxLayout()
-        self.tabla = QTableWidget()
-        self.tabla.setObjectName("Persona")
         self._cursor =self._connection.cursor()
-        self._cursor.execute(f"select usuario, clave,nombre, apellido,dni,id_rol from usuarios")
+        self._cursor.execute(f"select id_usuario,usuario,nombre, apellido,dni from usuarios")
 
         v = self._cursor.fetchall()
         c = len(v[0])
         f = len(v)
-        self.tabla.setRowCount(f)
-        self.tabla.setColumnCount(c)
+        cabezas_tablas=["id_usuario","usuario","nombre","apellido","dni"]
+        self.tabla = QTableWidget(f,c)
+        self.tabla.setObjectName("Persona")
+        self.tabla.setHorizontalHeaderLabels(cabezas_tablas)
 
         for i in range(f):
             for j in range(c):
