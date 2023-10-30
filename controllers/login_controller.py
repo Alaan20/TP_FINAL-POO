@@ -2,11 +2,11 @@ from typing import Any
 from  PyQt5 import QtWidgets, uic
 import time
 from database.database import PersonaDb
+from controllers.main_controller import Main
 
 # Iniciar la aplicación
 app = QtWidgets.QApplication([])
 login = uic.loadUi('views/login.ui')
-main = uic.loadUi('views/main.ui')
 db = PersonaDb()
         
 class LoginController(): # Logica de negocio 
@@ -33,7 +33,7 @@ class LoginController(): # Logica de negocio
             if str(row[1]) == str("admin") and row[2] == str("admin"):
                 LoginController.show_page_2(list(row))
             
-            #Main.show_page_3(list(row))
+            Main.show_page_3(row)
             self.login_ui.close()
         
         except Exception as e:
@@ -59,7 +59,7 @@ class LoginController(): # Logica de negocio
             self.login_ui.error_1.setText("Contraseña cambiada con éxito")
             time.sleep(1)
             self.login_ui.close()
-            #Main.show_page_3(row)
+            Main.show_page_3(row)
         
         except Exception as e:
             self.login_ui.error_1.setText(str(e))
@@ -72,5 +72,3 @@ class Login():
         login.log_in_1.clicked.connect(lambda: self.login_controller.show_page_2(list()))
         login.show()
         app.exec()
-
-
