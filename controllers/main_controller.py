@@ -13,14 +13,16 @@ class Main():
     
     def show_page_3(row):
         rows = db1.leer_todos()
-        main.table_user.setRowCount(len(rows))
-        main.table_user.setColumnCount(len(rows[0]))
+        c = len(rows[0])
+        f = len(rows)
         
-        for i, row1 in enumerate(rows):
-            for j, col in enumerate(row1):
-                main.table_user.setItem(rows.index(row1),j,QtWidgets.QTableWidgetItem(str(row1[i])))
-                    #print("gug")
-        
+        main.table_user.setRowCount(f)
+        main.table_user.setColumnCount(c)
+
+        for i in range(f):
+            for j in range(c):
+                main.table_user.setItem(i,j,QtWidgets.QTableWidgetItem(f'{rows[i][j]}'))
+                
         # if row[9 ] == "m":
         #     db.mecanico_vista(main)
         #     print(row)
