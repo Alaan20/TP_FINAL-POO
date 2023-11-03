@@ -206,7 +206,7 @@
              <bool>false</bool>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="page_mecanic">
              <widget class="QFrame" name="frame_25">
@@ -362,9 +362,9 @@
               <property name="geometry">
                <rect>
                 <x>9</x>
-                <y>83</y>
+                <y>110</y>
                 <width>609</width>
-                <height>478</height>
+                <height>451</height>
                </rect>
               </property>
               <property name="autoFillBackground">
@@ -541,6 +541,70 @@
                </property>
               </item>
              </widget>
+             <widget class="QFrame" name="frame_4">
+              <property name="geometry">
+               <rect>
+                <x>9</x>
+                <y>70</y>
+                <width>621</width>
+                <height>41</height>
+               </rect>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_4">
+               <item>
+                <spacer name="horizontalSpacer_3">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>166</width>
+                   <height>18</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_4">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEdit_2">
+                 <property name="layoutDirection">
+                  <enum>Qt::LeftToRight</enum>
+                 </property>
+                 <property name="placeholderText">
+                  <string>Ingrese el nombre de usuario</string>
+                 </property>
+                 <property name="cursorMoveStyle">
+                  <enum>Qt::VisualMoveStyle</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_8">
+                 <property name="text">
+                  <string>Buscar</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
             </widget>
             <widget class="QWidget" name="page_user">
              <widget class="QFrame" name="frame_15">
@@ -623,9 +687,9 @@
               <property name="geometry">
                <rect>
                 <x>9</x>
-                <y>83</y>
+                <y>110</y>
                 <width>609</width>
-                <height>478</height>
+                <height>451</height>
                </rect>
               </property>
               <property name="autoFillBackground">
@@ -934,6 +998,70 @@
                   </size>
                  </property>
                 </spacer>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QFrame" name="frame_3">
+              <property name="geometry">
+               <rect>
+                <x>9</x>
+                <y>70</y>
+                <width>621</width>
+                <height>41</height>
+               </rect>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <item>
+                <spacer name="horizontalSpacer_2">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>166</width>
+                   <height>18</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEdit">
+                 <property name="layoutDirection">
+                  <enum>Qt::LeftToRight</enum>
+                 </property>
+                 <property name="placeholderText">
+                  <string>Ingrese el nombre de usuario</string>
+                 </property>
+                 <property name="cursorMoveStyle">
+                  <enum>Qt::VisualMoveStyle</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_2">
+                 <property name="text">
+                  <string>Buscar</string>
+                 </property>
+                </widget>
                </item>
               </layout>
              </widget>
