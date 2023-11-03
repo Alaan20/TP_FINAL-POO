@@ -29,14 +29,14 @@ class MainController(): # Logica de negocio
             c = len(rows[0])
             f = len(rows)
             
-            main.table_user2.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-            main.table_user2.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
-            main.table_user2.setRowCount(f +1)
-            main.table_user2.setColumnCount(c)
+            main.Tableuser_2.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+            main.Tableuser_2.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+            main.Tableuser_2.setRowCount(f +1)
+            main.Tableuser_2.setColumnCount(c)
 
             for i in range(f):
                 for j in range(c):
-                    main.table_user2.setItem(i+1,j,QtWidgets.QTableWidgetItem(f'{rows[i][j]}'))
+                    main.Tableuser_2.setItem(i+1,j,QtWidgets.QTableWidgetItem(f'{rows[i][j]}'))
                     
 class Main():
         def __init__(self,row):

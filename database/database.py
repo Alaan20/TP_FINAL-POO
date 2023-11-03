@@ -55,7 +55,7 @@ class PersonaDb(Conection):
         return rows
     
     def leer_mecanicos(self):
-        self._cursor.execute("SELECT usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 2")
+        self._cursor.execute("SELECT usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 1")
         rows = self._cursor.fetchall()
         return rows
 
