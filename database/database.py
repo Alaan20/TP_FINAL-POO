@@ -24,7 +24,12 @@ class PersonaDb(Conection):
         self._cursor.execute(f"SELECT * FROM usuarios WHERE usuario = '{usuario}' AND clave = '{clave}'")
         row = self._cursor.fetchone()
         return row
-        
+    
+    # def obtener_nombres_columnas(self):
+    #     self._cursor.execute("SELECT * FROM usuarios LIMIT 0")
+    #     nombres_columnas = [description[0] for description in self._cursor.description]
+    #     return nombres_columnas
+
     def actualizar(self,row):
         self._cursor.execute(f"SELECT * FROM usuarios WHERE id_usuario = '{row[0]}'")
         self.setcolumn(row)
@@ -44,8 +49,13 @@ class PersonaDb(Conection):
         self._conn.commit()
         self._conn.close()
 
-    def leer_todos(self):
-        self._cursor.execute("SELECT * FROM usuarios")
+    def leer_usuarios(self):
+        self._cursor.execute("SELECT usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 2")
+        rows = self._cursor.fetchall()
+        return rows
+    
+    def leer_mecanicos(self):
+        self._cursor.execute("SELECT usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 2")
         rows = self._cursor.fetchall()
         return rows
 

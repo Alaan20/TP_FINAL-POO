@@ -2,7 +2,7 @@ from typing import Any
 from  PyQt5 import QtWidgets, uic
 import time
 from database.database import PersonaDb
-from controllers.main_controller import Main
+from controllers.main_controller import *
 
 # Iniciar la aplicación
 app = QtWidgets.QApplication([])
@@ -33,7 +33,7 @@ class LoginController(): # Logica de negocio
             if str(row[1]) == str("admin") and row[2] == str("admin"):
                 LoginController.show_page_2(list(row))
             
-            Main.show_page_3(row)
+            Main(row)
             self.login_ui.close()
         
         except Exception as e:
@@ -59,7 +59,7 @@ class LoginController(): # Logica de negocio
             self.login_ui.error_1.setText("Contraseña cambiada con éxito")
             time.sleep(1)
             self.login_ui.close()
-            Main.show_page_3(row)
+            Main(row)
         
         except Exception as e:
             self.login_ui.error_1.setText(str(e))

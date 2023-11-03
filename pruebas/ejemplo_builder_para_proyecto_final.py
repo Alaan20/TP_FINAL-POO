@@ -35,7 +35,9 @@ class concretebuilderService(builderService):
         self._service.agregar("Elementos de Seguridad: Amortiguadores")
         self._service.agregar("Elementos de Seguridad: Revision general de presion de neumaticos")
         self._service.agregar("Elementos de Seguridad: Revision tuerca neumaticos")
+        
         self._service.agregar("Fluidos del Vehiculo: Bateria")
+        
         self._service.agregar("Lubricantes y Filtros: Revision filtro de combustible")
         self._service.agregar("Lubricantes y Filtros: Revision aceite diferencial")
         self._service.agregar("Lubricantes y Filtros: Cambio de aceite y filtro")
@@ -44,9 +46,11 @@ class concretebuilderService(builderService):
     def servicios_estandar(self) -> None:
         self._service.agregar("Fluidos del Vehiculo: Liquido de direccion hidraulica y del limpiaparabrisas")
         self._service.agregar("Fluidos del Vehiculo: Revision liquido de frenos")
+        
         self._service.agregar("Partes Mecanicas: Bisagras de puertas y engrase retenedor de puertas")
         self._service.agregar("Partes Mecanicas: Caño de escape")
         self._service.agregar("Partes Mecanicas: Correa alternador y de Direccion Asistida")
+        
         self._service.agregar("ABS: Airbag")
         self._service.agregar("ABS: Inyeccion")
         self._service.agregar("ABS: Sensores y Actuadores")
@@ -95,67 +99,6 @@ class Director():
         self.builder.servicios_estandar()
         self.builder.servicios_completo()
 
-class ServiceGenerico(ABC):
-
-    def __init__(self):
-        self.director = Director()
-
-    @abstractmethod
-    def _armo_service (self):
-        self.director.builder = concretebuilderService()
-    
-    @abstractmethod
-    def _partes_service (self):
-        self._armo_service()
-        lista = self.director.builder.service._parts
-        return lista
-
-class ServiceBasico(ServiceGenerico):
-    
-    def __init__(self):
-        super().__init__()
-    
-    def _armo_service(self):
-        super()._armo_service()
-        self.director.service_basico()
-    
-    def _partes_service(self):
-        return super()._partes_service()
-
-class ServiceEstandar(ServiceGenerico):
-    
-    def __init__(self):
-        super().__init__()
-    
-    def _armo_service(self):
-        super()._armo_service()
-        self.director.service_estandar()
-    
-    def _partes_service(self):
-        return super()._partes_service()
-
-class ServiceCompleto (ServiceGenerico):
-    
-    def __init__(self):
-        super().__init__()
-    
-    def _armo_service(self):
-        super()._armo_service()
-        self.director.service_completo()
-    
-    def _partes_service(self):
-        return super()._partes_service()
-
-
-service_basico = ServiceBasico()
-print("SERVICE BASICO:\n",service_basico._partes_service())
-
-print('\n')
-
-service_estandar = ServiceEstandar()
-print("SERVICE ESTANDAR:\n",service_estandar._partes_service())
-
-print('\n')
-
-service_completo = ServiceCompleto()
-print("SERVICE COMPLETO:\n",service_completo._partes_service())
+director=Director()
+builder=concretebuilderService()
+director.builder=builder
