@@ -52,9 +52,9 @@ class PersonaDb(Conection):
     def leer_usuarios(self):
         self._cursor.execute("SELECT id_usuario, usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 2")
         rows = self._cursor.fetchall()
-        #rows_id = [row[0] for row in rows]
-        #rows = [row[1:] for row in rows]
-        return rows #, rows_id
+        rows_id = [row[0] for row in rows]
+        rows = [row[1:] for row in rows]
+        return rows,rows_id
     
     def leer_mecanicos(self):
         self._cursor.execute("SELECT id_usuario, usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 1")
@@ -63,6 +63,16 @@ class PersonaDb(Conection):
         rows = [row[1:] for row in rows]
         return rows, rows_id
 
+class AutosDb(Conection):
+    def __init__(self):
+        super().__init__()
+        self._cursor =  self._connection.cursor()
+        
+    def leer_autos(self,numero):
+        self._cursor.execute(f"SELECT * FROM autos WHERE id_usuario = '{row[numero]}'")
+        rows = self._cursor.fetchall()
+        return rows
+    
 class PermisosDb(Conection):
     def __init__(self):
         super().__init__()

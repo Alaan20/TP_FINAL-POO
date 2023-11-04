@@ -11,7 +11,7 @@ db = Permisos()
 class MainController(): # Logica de negocio
     
     def listado_usuarios_mecanicos():
-            rows = db1.leer_usuarios()
+            rows,rows_id = db1.leer_usuarios()
             c = len(rows[0])
             f = len(rows)
                 
@@ -24,7 +24,7 @@ class MainController(): # Logica de negocio
                 for j in range(c):
                     main.table_user.setItem(i+1,j,QtWidgets.QTableWidgetItem(f'{rows[i][j]}'))
 
-            rows = db1.leer_mecanicos()
+            rows,rows_id = db1.leer_mecanicos()
             c = len(rows[0])
             f = len(rows)
             
@@ -37,12 +37,21 @@ class MainController(): # Logica de negocio
                 for j in range(c):
                     main.Tableuser_2.setItem(i+1,j,QtWidgets.QTableWidgetItem(f'{rows[i][j]}'))
     
-    # def get_rows(self):
-    #     return rows
-            
     def cargar_listado_autos(self,numero,id_row):
-        print(numero)
-        print(id_row)  
+        self._row = id_row(numero)
+        rows = db1.leer_autos(id_row(numero))
+        c = len(rows[0])
+        f = len(rows)
+            
+        main.table_user.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        main.table_user.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        main.table_user.setRowCount(f +1)
+        main.table_user.setColumnCount(c)
+
+        for i in range(f):
+            for j in range(c):
+                main.table_user.setItem(i+1,j,QtWidgets.QTableWidgetItem(f'{rows[i][j]}'))
+
 class Main():
         def __init__(self,row):
             self._row = row
