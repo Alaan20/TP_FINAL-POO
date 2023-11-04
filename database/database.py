@@ -50,9 +50,11 @@ class PersonaDb(Conection):
         self._conn.close()
 
     def leer_usuarios(self):
-        self._cursor.execute("SELECT usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 2")
+        self._cursor.execute("SELECT id_usuario, usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 2")
         rows = self._cursor.fetchall()
-        return rows
+        #rows_id = [row[0] for row in rows]
+        #rows = [row[1:] for row in rows]
+        return rows #, rows_id
     
     def leer_mecanicos(self):
         self._cursor.execute("SELECT id_usuario, usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 1")

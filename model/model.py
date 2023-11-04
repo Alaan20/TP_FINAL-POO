@@ -1,11 +1,7 @@
 #from controllers.main_controller import *
 from database.database import PermisosDb
 db = PermisosDb()
-
 class Permisos:
-    def __init__ (self):
-        self._row = []	  
-    
     def mecanico_vista(self,main):
         self._row = db.leer(1)
         if self._row[1] is False:
