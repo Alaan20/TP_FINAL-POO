@@ -1,7 +1,6 @@
 from  PyQt5 import QtWidgets, uic
 from database.database import PermisosDb
 from database.database import PersonaDb
-#from controllers.login_controller import LoginController
 from model.model import *
 
 app = QtWidgets.QApplication([])
@@ -11,7 +10,7 @@ db = Permisos()
 
 class MainController(): # Logica de negocio
     
-    def show_page_3(row):
+    def listado_usuarios_mecanicos(row):
             rows = db1.leer_usuarios()
             c = len(rows[0])
             f = len(rows)
@@ -41,7 +40,11 @@ class MainController(): # Logica de negocio
 class Main():
         def __init__(self,row):
             self._row = row
-            MainController.show_page_3(self._row)
+            MainController.listado_usuarios_mecanicos(self._row)
             main.pushButton_3.clicked.connect(lambda: main.stackedWidget.setCurrentIndex(0))
+            main.pushButton_5.clicked.connect(lambda: main.stackedWidget.setCurrentIndex(1))
+            main.pushButton_4.clicked.connect(lambda: main.stackedWidget.setCurrentIndex(3))
+            main.pushButton_6.clicked.connect(lambda: main.stackedWidget.setCurrentIndex(2))
+            main.pushButton.clicked.connect(lambda: main.stackedWidget.setCurrentIndex(4))
             main.show()
             app.exec()

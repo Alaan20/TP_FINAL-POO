@@ -55,9 +55,11 @@ class PersonaDb(Conection):
         return rows
     
     def leer_mecanicos(self):
-        self._cursor.execute("SELECT usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 1")
+        self._cursor.execute("SELECT id_usuario, usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 1")
         rows = self._cursor.fetchall()
-        return rows
+        rows_id = [row[0] for row in rows]
+        rows = [row[1:] for row in rows]
+        return rows, rows_id
 
 class PermisosDb(Conection):
     def __init__(self):

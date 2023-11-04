@@ -2594,6 +2594,11 @@
               </column>
               <column>
                <property name="text">
+                <string>año</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
                 <string>kilometros</string>
                </property>
                <property name="font">
@@ -2684,7 +2689,7 @@
               </item>
               <item row="0" column="3">
                <property name="text">
-                <string>Kilometros</string>
+                <string>Año</string>
                </property>
                <property name="font">
                 <font>
@@ -2699,7 +2704,7 @@
               </item>
               <item row="0" column="4">
                <property name="text">
-                <string>Tip. Combustible</string>
+                <string>Kilometros</string>
                </property>
                <property name="font">
                 <font>
@@ -2713,6 +2718,21 @@
                </property>
               </item>
               <item row="0" column="5">
+               <property name="text">
+                <string>Tip. Combustible</string>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="textAlignment">
+                <set>AlignCenter</set>
+               </property>
+              </item>
+              <item row="0" column="6">
                <property name="text">
                 <string>Notas</string>
                </property>
