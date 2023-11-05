@@ -4,15 +4,12 @@ import time
 from database.database import PersonaDb
 from controllers.main_controller import *
 
-# Iniciar la aplicación
-app = QtWidgets.QApplication([])
-login = uic.loadUi('views/login.ui')
-db = PersonaDb()
-        
 class LoginController(): # Logica de negocio 
     
-    def __init__(self, login_ui):
+    def __init__(self, login,main,app):
         self.login_ui = login
+        self.main = main
+        self.app = app
         self.db = PersonaDb()
     
     def gui_login(self):
@@ -33,7 +30,7 @@ class LoginController(): # Logica de negocio
             if str(row[1]) == str("admin") and row[2] == str("admin"):
                 LoginController.show_page_2(list(row))
             
-            Main(row)
+            Main(row,self.app,self.main)
             self.login_ui.close()
         
         except Exception as e:
@@ -59,15 +56,15 @@ class LoginController(): # Logica de negocio
             self.login_ui.error_1.setText("Contraseña cambiada con éxito")
             time.sleep(1)
             self.login_ui.close()
-            Main(row)
+            Main(row,self.app,self.main)
         
         except Exception as e:
             self.login_ui.error_1.setText(str(e))
 
 class Login():
     
-    def __init__(self):
-        self.login_controller = LoginController(login)
+    def __init__(self,app,login,main):
+        self.login_controller = LoginController(login,main,app)
         login.log_in.clicked.connect(self.login_controller.gui_login)
         login.log_in_1.clicked.connect(lambda: self.login_controller.show_page_2(list()))
         login.show()
