@@ -1,8 +1,8 @@
 from  PyQt5 import QtWidgets, uic
 from model.permisos import *
-from database.database import PersonaDb
+from database.database import PersonaDb, AutosDb
 db1 = PersonaDb()
-
+db2 = AutosDb()
 class MainController(): # Logica de negocio
     def __init__(self,main):
         self._main = main
@@ -10,9 +10,9 @@ class MainController(): # Logica de negocio
         self._rows_id = []
 
     def listado_usuarios_mecanicos(self):
-            rows,rows_id = db1.leer_usuarios()
-            c = len(rows[0])
-            f = len(rows)
+            self._rows,self._rows_id = db1.leer_usuarios()
+            c = len(self._rows[0])
+            f = len(self._rows)
                 
             self._main.table_user.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
             self._main.table_user.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
@@ -20,10 +20,10 @@ class MainController(): # Logica de negocio
             self._main.table_user.setColumnCount(c)
             for i in range(f):
                 for j in range(c):
-                    self._main.table_user.setItem(i+1,j,QtWidgets.QTableWidgetItem(f'{rows[i][j]}'))
-            rows,rows_id = db1.leer_mecanicos()
-            c = len(rows[0])
-            f = len(rows)
+                    self._main.table_user.setItem(i+1,j,QtWidgets.QTableWidgetItem(f'{self._rows[i][j]}'))
+            self._rows,self._rows_id = db1.leer_mecanicos()
+            c = len(self._rows[0])
+            f = len(self._rows)
             
             self._main.Tableuser_2.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
             self._main.Tableuser_2.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
@@ -31,23 +31,20 @@ class MainController(): # Logica de negocio
             self._main.Tableuser_2.setColumnCount(c)
             for i in range(f):
                 for j in range(c):
-                    self._main.Tableuser_2.setItem(i+1,j,QtWidgets.QTableWidgetItem(f'{rows[i][j]}'))
-    
-    def cargar_listado_autos(self,numero,id_row):
-        self._row = id_row(numero)
-        rows = db1.leer_autos(id_row(numero))
+                    self._main.Tableuser_2.setItem(i+1,j,QtWidgets.QTableWidgetItem(f'{self._rows[i][j]}'))
 
     def cargar_listado_autos(self,numero):
-        self._row = self._rows_id(numero)
-        self._rows = db1.leer_autos(self._rows_id(numero))
-        c = len(self._rows[0])
-        f = len(self._rows)
+        self._rows = db2.leer_autos(self._rows_id[numero-1])
+        print(self._rows)
+        print(db2.leer_autos(self._rows_id[numero-1]))
+        # c = len(self._rows[0])
+        # f = len(self._rows)
             
-        self._main.table_user.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self._main.table_user.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
-        self._main.table_user.setRowCount(f +1)
-        self._main.table_user.setColumnCount(c)
+        # self._main.table_auto.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        # self._main.table_auto.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        # self._main.table_auto.setRowCount(f +1)
+        # self._main.table_auto.setColumnCount(c)
 
-        for i in range(f):
-            for j in range(c):
-                self._main.table_user.setItem(i+1,j,QtWidgets.QTableWidgetItem(f'{self._rows[i][j]}'))
+        # for i in range(f):
+        #     for j in range(c):
+        #         self._main.table_auto.setItem(i+1,j,QtWidgets.QTableWidgetItem(f'{self._rows[i][j]}'))

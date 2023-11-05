@@ -69,7 +69,7 @@ class AutosDb(Conection):
         self._cursor =  self._connection.cursor()
         
     def leer_autos(self,numero):
-        self._cursor.execute(f"SELECT * FROM autos WHERE id_usuario = '{row[numero]}'")
+        self._cursor.execute(f"SELECT * FROM autos WHERE id_dueño = '{numero}'")
         rows = self._cursor.fetchall()
         return rows
     
@@ -80,6 +80,6 @@ class PermisosDb(Conection):
         
     def leer(self,rol):
         self._cursor.execute(f"SELECT * FROM roles WHERE id_rol = '{rol}'")
-        row = self._cursor.fetchone()
+        row = self._cursor.fetchall()
         return row
         
