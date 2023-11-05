@@ -6,6 +6,9 @@ db1 = PersonaDb()
 class MainController(): # Logica de negocio
     def __init__(self,main):
         self._main = main
+        self._rows = []
+        self._rows_id = []
+
     def listado_usuarios_mecanicos(self):
             rows,rows_id = db1.leer_usuarios()
             c = len(rows[0])
@@ -15,11 +18,9 @@ class MainController(): # Logica de negocio
             self._main.table_user.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
             self._main.table_user.setRowCount(f +1)
             self._main.table_user.setColumnCount(c)
-
             for i in range(f):
                 for j in range(c):
                     self._main.table_user.setItem(i+1,j,QtWidgets.QTableWidgetItem(f'{rows[i][j]}'))
-
             rows,rows_id = db1.leer_mecanicos()
             c = len(rows[0])
             f = len(rows)
@@ -28,7 +29,6 @@ class MainController(): # Logica de negocio
             self._main.Tableuser_2.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
             self._main.Tableuser_2.setRowCount(f +1)
             self._main.Tableuser_2.setColumnCount(c)
-
             for i in range(f):
                 for j in range(c):
                     self._main.Tableuser_2.setItem(i+1,j,QtWidgets.QTableWidgetItem(f'{rows[i][j]}'))
@@ -36,8 +36,12 @@ class MainController(): # Logica de negocio
     def cargar_listado_autos(self,numero,id_row):
         self._row = id_row(numero)
         rows = db1.leer_autos(id_row(numero))
-        c = len(rows[0])
-        f = len(rows)
+
+    def cargar_listado_autos(self,numero):
+        self._row = self._rows_id(numero)
+        self._rows = db1.leer_autos(self._rows_id(numero))
+        c = len(self._rows[0])
+        f = len(self._rows)
             
         self._main.table_user.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self._main.table_user.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
@@ -46,4 +50,4 @@ class MainController(): # Logica de negocio
 
         for i in range(f):
             for j in range(c):
-                self._main.table_user.setItem(i+1,j,QtWidgets.QTableWidgetItem(f'{rows[i][j]}'))
+                self._main.table_user.setItem(i+1,j,QtWidgets.QTableWidgetItem(f'{self._rows[i][j]}'))
