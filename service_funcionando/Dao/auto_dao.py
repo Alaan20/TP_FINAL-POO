@@ -4,9 +4,10 @@ class AutoDao:
     
     def __init__(self):
         self._conexion = psycopg2.connect(
-            database = "tp_final_poo",
+            database = "[autosoft]",
             user= "postgres",
-            password = "bd2372",
+            password = "teclas",
+            host="tpphost.duckdns.org",
             port = "5432")
         self._cursor = self._conexion.cursor()
 
