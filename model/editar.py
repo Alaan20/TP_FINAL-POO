@@ -9,12 +9,14 @@ class EditarController(): # Logica de negocio
         if self._selected_rows:
             # Cambiar a la nueva página
             self._main.stackedWidget.setCurrentIndex(3)
-            self._main.lineEdit_25.setText(self._selected_rows[0].text())
-            self._main.lineEdit_18.setText(self._selected_rows[1].text())
-            self._main.lineEdit_14.setText(self._selected_rows[2].text())
-            self._main.lineEdit_19.setText(self._selected_rows[3].text())
-            self._main.lineEdit_26.setText(self._selected_rows[4].text())
-            self._main.lineEdit_17.setText(self._selected_rows[5].text())
+            
+            self._main.lineEdit_18.setText(self._selected_rows[0].text()) #
+            self._main.lineEdit_17.setText(self._selected_rows[1].text())#
+            self._main.lineEdit_19.setText(self._selected_rows[2].text())#
+            self._main.lineEdit_6.setText(self._selected_rows[3].text())#
+            self._main.lineEdit_30.setText(self._selected_rows[4].text())
+            self._main.lineEdit_23.setText(self._selected_rows[5].text())
+            self._main.lineEdit_14.setText("********")
     
     # def actualizar(self):
     #     # Obtener los datos de los QLineEdit

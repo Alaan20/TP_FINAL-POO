@@ -11,7 +11,7 @@ class LoginController(): # Logica de negocio
         self.main = main
         self.app = app
         self.db = PersonaDb()
-    
+
     def gui_login(self):
         try:
             name = self.login_ui.user.text()
