@@ -16,9 +16,13 @@ class PersonaDb(Conection):
         super().__init__()
         self._cursor =  self._connection.cursor()
     
-    def crear(self,persona):
-        self._cursor.execute(f"INSERT INTO usuarios (usuario, contraseña, tipo) VALUES ({persona._usuario},{persona._contraseña},{persona._tipo})") 
-        self._conn.commit()
+    def crear(self,persona: list,rol):
+        if persona[6]=='null':
+            self._cursor.execute(f"insert into usuarios (usuario,clave,nombre,apellido,dni,correo_electronico,nro_telefono,id_rol,estado) values ('{persona[0]}','{persona[1]}','{persona[2]}','{persona[3]}','{persona[4]}',{persona[5]},{persona[6]},'{rol}','a')") 
+            self._connection.commit()
+        else:
+            self._cursor.execute(f"insert into usuarios (usuario,clave,nombre,apellido,dni,correo_electronico,nro_telefono,id_rol,estado) values ('{persona[0]}','{persona[1]}','{persona[2]}','{persona[3]}','{persona[4]}','{persona[5]}','{persona[6]}','{rol}','a')") 
+            self._connection.commit()
         
     def leer(self,usuario,clave):
         self._cursor.execute(f"SELECT * FROM usuarios WHERE usuario = '{usuario}' AND clave = '{clave}'")
