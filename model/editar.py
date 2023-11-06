@@ -8,17 +8,29 @@ class EditarController(): # Logica de negocio
         self._selected_rows = self._main.table_user.selectedItems()
         if self._selected_rows:
             # Cambiar a la nueva página
-            self._main.stackedWidget.setCurrentIndex(3)
+            self._main.stackedWidget.setCurrentIndex(6)
+            self.llenar_texto()
+            self._main.label_61.setText("Editar Usuario")
             
-            self._main.lineEdit_18.setText(self._selected_rows[0].text()) #
-            self._main.lineEdit_17.setText(self._selected_rows[1].text())#
-            self._main.lineEdit_19.setText(self._selected_rows[2].text())#
-            self._main.lineEdit_6.setText(self._selected_rows[3].text())#
-            self._main.lineEdit_30.setText(self._selected_rows[4].text())
-            self._main.lineEdit_23.setText(self._selected_rows[5].text())
-            self._main.lineEdit_14.setText("********")
+    def editar_mecanicos(self):
+        self._selected_rows = self._main.Tableuser_2.selectedItems()
+        if self._selected_rows:
+            # Cambiar a la nueva página
+            self._main.stackedWidget.setCurrentIndex(6)
+            self.llenar_texto()
+            self._main.label_61.setText("Editar Mecanico")
+            
+    def llenar_texto(self):
     
-    # def actualizar(self):
+            self._main.lineEdit_50.setText(self._selected_rows[0].text())
+            self._main.lineEdit_51.setText("********")
+            self._main.lineEdit_52.setText(self._selected_rows[1].text())
+            self._main.lineEdit_53.setText(self._selected_rows[2].text())
+            self._main.lineEdit_54.setText(self._selected_rows[3].text())
+            self._main.lineEdit_55.setText(self._selected_rows[4].text())
+            self._main.lineEdit_56.setText(self._selected_rows[5].text())
+                
+                # def actualizar(self):
     #     # Obtener los datos de los QLineEdit
     #     datos = [
     #         self._main.lineEdit_25.text(),
@@ -32,15 +44,3 @@ class EditarController(): # Logica de negocio
     #     for i, dato in enumerate(datos):
     #         if self._selected_rows and i < len(self._selected_rows):
     #             self._selected_rows[i].setText(dato)
-    
-    def editar_mecanicos(self):
-        self._selected_rows = self._main.Tableuser_2.selectedItems()
-        if self._selected_rows:
-            # Cambiar a la nueva página
-            self._main.stackedWidget.setCurrentIndex(2)
-            self._main.lineEdit_38.setText(self._selected_rows[0].text())
-            self._main.lineEdit_31.setText(self._selected_rows[1].text())
-            self._main.lineEdit_27.setText(self._selected_rows[2].text())
-            self._main.lineEdit_32.setText(self._selected_rows[3].text())
-            self._main.lineEdit_39.setText(self._selected_rows[4].text())
-            self._main.lineEdit_30.setText(self._selected_rows[5].text())
