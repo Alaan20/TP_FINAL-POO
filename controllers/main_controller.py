@@ -19,12 +19,7 @@ class Main():
             self._main.pushButton_4.clicked.connect(lambda: main.stackedWidget.setCurrentIndex(3))
             self._main.pushButton_6.clicked.connect(lambda: main.stackedWidget.setCurrentIndex(2))
             self._main.pushButton.clicked.connect(lambda: main.stackedWidget.setCurrentIndex(4))
-            self._main.table_user.cellDoubleClicked.connect(lambda: self._mainController.cargar_listado_autos(self._main.table_user.currentRow()))
-            
-            #self._main.table_user.cellDoubleClicked.connect(lambda: print(self._main.table_user.currentRow()))
-            
+            self._main.table_user.cellDoubleClicked.connect(lambda: self._mainController.cargar_listado_autos(self._main.table_user.currentRow()) if main.table_user.currentRow() != 0 else None)
+
             self._main.show()
             app.exec()
-        
-        def print_numero(self,numero):
-                print(numero)
