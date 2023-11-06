@@ -1,4 +1,4 @@
-class BusquedaController(): # Logica de negocio
+class BusquedaController():
     def __init__(self,main):
         self._main = main
         self._texto = ""

@@ -1,8 +1,8 @@
 from  PyQt5 import QtWidgets, uic
-#from main import app, main, db1, db
 from model.permisos import *
 from model.listados import ListadoController
 from model.busqueda import BusquedaController
+from model.editar import EditarController
 
 class Main():
         def __init__(self,row,app,main):
@@ -11,6 +11,7 @@ class Main():
             self._main = main
             self._mainController = ListadoController(main)
             self._busquedaController = BusquedaController(main)
+            self._editar = EditarController(main)
             
             if self._row[8] == 1:
                 db.mecanico_vista(self._main)
@@ -24,5 +25,8 @@ class Main():
             self._main.table_user.cellDoubleClicked.connect(lambda: self._mainController.cargar_listado_autos(self._main.table_user.currentRow()) if main.table_user.currentRow() != 0 else None)
             self._main.pushButton_2.clicked.connect(self._busquedaController.buscar_usuarios)
             self._main.pushButton_8.clicked.connect(self._busquedaController.buscar_mecanicos)
+            self._main.pushButton_7.clicked.connect(self._editar.editar_usuarios)
+            self._main.pushButton_19.clicked.connect(self._editar.editar_mecanicos)
+            
             self._main.show()
             app.exec()
