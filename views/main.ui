@@ -2553,7 +2553,7 @@
                      </font>
                     </property>
                     <property name="text">
-                     <string>Añadir Mecanico:</string>
+                     <string>Editar usuario:</string>
                     </property>
                    </widget>
                   </item>
@@ -2819,22 +2819,22 @@
                         <property name="frameShadow">
                          <enum>QFrame::Raised</enum>
                         </property>
-                       </widget>
-                       <widget class="QLabel" name="label_76">
-                        <property name="geometry">
-                         <rect>
-                          <x>100</x>
-                          <y>-10</y>
-                          <width>131</width>
-                          <height>131</height>
-                         </rect>
-                        </property>
-                        <property name="text">
-                         <string/>
-                        </property>
-                        <property name="pixmap">
-                         <pixmap>../icons/contact-book.png</pixmap>
-                        </property>
+                        <widget class="QLabel" name="label_76">
+                         <property name="geometry">
+                          <rect>
+                           <x>10</x>
+                           <y>10</y>
+                           <width>131</width>
+                           <height>131</height>
+                          </rect>
+                         </property>
+                         <property name="text">
+                          <string/>
+                         </property>
+                         <property name="pixmap">
+                          <pixmap>../icons/contact-book.png</pixmap>
+                         </property>
+                        </widget>
                        </widget>
                       </widget>
                      </item>

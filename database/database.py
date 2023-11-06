@@ -1,5 +1,4 @@
 import psycopg2
-import sqlite3
 
 class Conection():
     def __init__(self):

@@ -14,7 +14,6 @@ class Main():
             self._editar = EditarController(main)
             self._agregar=Agregar(main)
             
-            
             if self._row[8] == 1:
                 db.mecanico_vista(self._main)
                 
@@ -31,8 +30,6 @@ class Main():
             self._main.pushButton_19.clicked.connect(self._editar.editar_mecanicos)
             self._main.pushButton_14.clicked.connect(self._agregar.agregar_usuario)
             self._main.pushButton_21.clicked.connect(self._agregar.agregar_mecanico)
-            
-            
             
             self._main.show()
             app.exec()
