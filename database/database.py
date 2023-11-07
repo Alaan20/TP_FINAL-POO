@@ -33,8 +33,8 @@ class PersonaDb(Conection):
     #     nombres_columnas = [description[0] for description in self._cursor.description]
     #     return nombres_columnas
 
-    def actualizar(self,row):
-        self._cursor.execute(f"SELECT * FROM usuarios WHERE id_usuario = '{row[0]}'")
+    def actualizar(self,id_rol,row):
+        self._cursor.execute(f"SELECT * FROM usuarios WHERE id_usuario = '{id_rol}'")
         self.setcolumn(row)
         if self._cursor.fetchone() is not None:
             self._cursor.execute(f"UPDATE usuarios SET usuario ='{row[1]}', clave ='{row[2]}', nombre ='{row[3]}', apellido ='{row[4]}', dni ='{row[5]}', correo_electronico='{row[6]}' WHERE id_usuario = '{row[0]}'")
@@ -55,16 +55,12 @@ class PersonaDb(Conection):
     def leer_usuarios(self):
         self._cursor.execute("SELECT id_usuario, usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 2")
         rows = self._cursor.fetchall()
-        rows_id = [row[0] for row in rows]
-        rows = [row[1:] for row in rows]
-        return rows,rows_id
+        return rows
     
     def leer_mecanicos(self):
         self._cursor.execute("SELECT id_usuario, usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 1")
         rows = self._cursor.fetchall()
-        rows_id = [row[0] for row in rows]
-        rows = [row[1:] for row in rows]
-        return rows, rows_id
+        return rows
 
 class AutosDb(Conection):
     def __init__(self):
