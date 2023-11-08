@@ -8,7 +8,14 @@ class AutosController():
         self._selected_rows=[]
         self._id_usuario=None
         
+    def validar_datos(self,variable,lista=list):
+        if not variable:
+            raise Exception("campos obligatorios vacios")
+        lista.append(variable)
+        
+        
     def agregar_autos(self):
+
         lista_auto=[]
         self._id_usuario= self._main.table_user.item(self._main.table_user.currentRow(),0)
         print(self._id_usuario.text())
@@ -19,9 +26,9 @@ class AutosController():
         lista_auto.append(self._main.lineEdit_59.text())
         lista_auto.append(self._main.lineEdit_58.text())
         lista_auto.append(self._main.lineEdit_62.text())
+
         lista_auto.append(self._main.textEdit_3.toPlainText())
-        
         self._bd2.agregar_autos(lista_auto)
         self._main.error_6.setStyleSheet("color:blue")
-        self._main.error_6.setText("auto cragado correctamente")
+        self._main.error_6.setText("auto cargado correctamente")
 

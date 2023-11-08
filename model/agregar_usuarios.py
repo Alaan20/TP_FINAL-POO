@@ -13,8 +13,8 @@ class Agregar():
         
     def agregar_usuario(self):
         llave=True
-
         try:
+            llave=True
             self._lista=[]
             self.validar_datos(self._main.lineEdit_18.text(),self._lista) #nombre ususario#
             self.validar_datos(self._main.lineEdit_14.text(),self._lista) #contraseña#
