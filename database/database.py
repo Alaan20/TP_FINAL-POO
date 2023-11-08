@@ -53,14 +53,14 @@ class PersonaDb(Conection):
         self._conn.close()
 
     def leer_usuarios(self):
-        self._cursor.execute("SELECT id_usuario, usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 2")
-        rows = self._cursor.fetchall()
-        return rows
+            self._cursor.execute("SELECT id_usuario, usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 2")
+            rows = self._cursor.fetchall()
+            return rows
     
     def leer_mecanicos(self):
-        self._cursor.execute("SELECT id_usuario, usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 1")
-        rows = self._cursor.fetchall()
-        return rows
+            self._cursor.execute("SELECT id_usuario, usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 1")
+            rows = self._cursor.fetchall()
+            return rows
 
 class AutosDb(Conection):
     def __init__(self):
