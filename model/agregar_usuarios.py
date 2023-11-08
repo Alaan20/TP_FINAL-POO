@@ -65,3 +65,4 @@ class Agregar():
             self._bd.crear(self._lista,1)
             self._main.error_3.setStyleSheet("color:blue")
             self._main.error_3.setText("mecanico agregado exitosamente!")
+        

@@ -5,6 +5,7 @@ from model.busqueda import BusquedaController
 from model.editar import EditarController
 from model.agregar_usuarios import Agregar
 from model.eliminar import Eliminar
+from model.autos import AutosController
 
 class Main():
         def __init__(self,row,app,main):
@@ -16,6 +17,7 @@ class Main():
             self._editar = EditarController(main)
             self._agregar=Agregar(main)
             self._eliminar = Eliminar(main)
+            self._autos=AutosController(main)
             
             if self._row[8] == 1:
                 db.mecanico_vista(self._main)
@@ -40,5 +42,6 @@ class Main():
             self._main.pushButton_13.clicked.connect(self._eliminar.eliminar_usuarios)
             self._main.pushButton_20.clicked.connect(self._eliminar.elimininar_mecanico)
             self._main.pushButton_10.clicked.connect(lambda: main.stackedWidget.setCurrentIndex(7))
+            self._main.pushButton_23.clicked.connect(self._autos.agregar_autos)
             self._main.show()
             app.exec()

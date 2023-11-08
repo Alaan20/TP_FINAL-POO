@@ -206,7 +206,7 @@
              <bool>false</bool>
             </property>
             <property name="currentIndex">
-             <number>5</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="page_mecanic">
              <widget class="QFrame" name="frame_25">
@@ -3198,7 +3198,7 @@
                          </font>
                         </property>
                         <property name="text">
-                         <string>Datos Presonales</string>
+                         <string>Detalles del Auto</string>
                         </property>
                        </widget>
                       </item>
