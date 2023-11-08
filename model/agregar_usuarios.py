@@ -15,6 +15,7 @@ class Agregar():
         llave=True
 
         try:
+            self._lista=[]
             self.validar_datos(self._main.lineEdit_18.text(),self._lista) #nombre ususario#
             self.validar_datos(self._main.lineEdit_14.text(),self._lista) #contraseña#
             self.validar_datos(self._main.lineEdit_17.text(),self._lista) #nombre#
@@ -24,21 +25,23 @@ class Agregar():
             self._main.error_2.setStyleSheet("color:red")
             self._main.error_2.setText(str(e))
             llave=False
-            
+        
         if llave==True:
             self._lista.append(self._main.lineEdit_20.text())
             self._lista.append(self._main.lineEdit_23.text())
             for i in range(len(self._lista)):
                 if not self._lista[i]:
                     self._lista[i]+='null'
-            self._bd.crear(self._lista,0)
-            
-            print(self._lista)
+            self._bd.crear(self._lista,2)
+                
+            self._main.error_2.setStyleSheet("color:blue")
+            self._main.error_2.setText("usuario agregado exitosamente!")
     
     def agregar_mecanico(self):
         llave=True
 
         try:
+            self._lista=[]
             self.validar_datos(self._main.lineEdit_31.text(),self._lista) #nombre ususario#
             self.validar_datos(self._main.lineEdit_27.text(),self._lista) #contraseña#
             self.validar_datos(self._main.lineEdit_30.text(),self._lista) #nombre#
@@ -52,14 +55,13 @@ class Agregar():
         if llave==True:
             self._lista.append(self._main.lineEdit_4.text())
             self._lista.append(self._main.lineEdit_5.text())
-            print(self._lista)
             
             for i in range(len(self._lista)):
                 if not self._lista[i]:
                     self._lista[i]+='null'
                 else:
-                    self._lista[i]=f'{self.lista[i]}'
-            print(self._lista)
+                    self._lista[i]=f'{self._lista[i]}'
+            
             self._bd.crear(self._lista,1)
-            
-            
+            self._main.error_3.setStyleSheet("color:blue")
+            self._main.error_3.setText("mecanico agregado exitosamente!")
