@@ -38,7 +38,6 @@ class EditarController():
     def guardar_cambios(self):
         try:
                 self._selected_rows = [self._id.text(),self._main.lineEdit_50.text(),self._main.lineEdit_51.text(),self._main.lineEdit_52.text(),self._main.lineEdit_53.text(),self._main.lineEdit_54.text(),self._main.lineEdit_55.text(),self._main.lineEdit_56.text()]
-                print(self._selected_rows)
                 if self._main.lineEdit_50.text() == "" or self._main.lineEdit_51.text() == "" or self._main.lineEdit_52.text() == "" or self._main.lineEdit_53.text() == "" or self._main.lineEdit_54.text() == "" or self._main.lineEdit_55.text() == "" or self._main.lineEdit_56.text() == "":
                     raise Exception("Por favor, complete todos los campos")
                 if self._main.lineEdit_51.text() == ""or self._main.lineEdit_51.text() == "********":
