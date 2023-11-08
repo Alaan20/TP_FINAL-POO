@@ -28,6 +28,7 @@ class Main():
             self._main.pushButton_8.clicked.connect(self._busquedaController.buscar_mecanicos)
             self._main.pushButton_7.clicked.connect(self._editar.editar_usuarios)
             self._main.pushButton_19.clicked.connect(self._editar.editar_mecanicos)
+            self._main.pushButton_22.clicked.connect(self._editar.guardar_cambios)
             self._main.pushButton_14.clicked.connect(self._agregar.agregar_usuario)
             self._main.pushButton_21.clicked.connect(self._agregar.agregar_mecanico)
             

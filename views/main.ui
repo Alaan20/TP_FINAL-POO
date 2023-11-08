@@ -2817,6 +2817,27 @@
                       </item>
                      </layout>
                     </widget>
+                    <widget class="QLabel" name="error_5">
+                     <property name="geometry">
+                      <rect>
+                       <x>0</x>
+                       <y>320</y>
+                       <width>261</width>
+                       <height>21</height>
+                      </rect>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <pointsize>10</pointsize>
+                       <weight>50</weight>
+                       <bold>false</bold>
+                       <kerning>true</kerning>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                    </widget>
                    </widget>
                   </item>
                   <item>
@@ -2882,27 +2903,6 @@
                           <pixmap>../icons/contact-book.png</pixmap>
                          </property>
                         </widget>
-                       </widget>
-                       <widget class="QLabel" name="error_5">
-                        <property name="geometry">
-                         <rect>
-                          <x>-90</x>
-                          <y>420</y>
-                          <width>191</width>
-                          <height>21</height>
-                         </rect>
-                        </property>
-                        <property name="font">
-                         <font>
-                          <pointsize>10</pointsize>
-                          <weight>50</weight>
-                          <bold>false</bold>
-                          <kerning>true</kerning>
-                         </font>
-                        </property>
-                        <property name="text">
-                         <string/>
-                        </property>
                        </widget>
                       </widget>
                      </item>
