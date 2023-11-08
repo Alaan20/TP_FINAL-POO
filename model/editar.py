@@ -8,6 +8,15 @@ class EditarController():
         self._id = None
         self._selected_rows = []
     
+    def editar_admin(self):
+        if self._main.user1.text() and self._main.password1.text():
+            self._db.actualizar_admin(self._main.user1.text(),self._main.password1.text())
+            self._main.label_3.setStyleSheet("color: green")
+            self._main.label_3.setText("Usuario editado con éxito")
+        else:
+            self._main.label_3.setStyleSheet("color: red")
+            self._main.label_3.setText("Por favor, complete todos los campos")
+    
     def editar_usuarios(self):
         self._selected_rows = self._main.table_user.selectedItems()
         self._id = self._main.table_user.item(self._main.table_user.currentRow(),0)

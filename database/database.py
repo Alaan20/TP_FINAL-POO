@@ -42,14 +42,19 @@ class PersonaDb(Conection):
         else:
             return False
     
+    def actualizar_admin(self,usuario,clave):
+        self._cursor.execute(f"UPDATE usuarios SET usuario ='{usuario}', clave ='{clave}' WHERE id_usuario = 1")
+        self._connection.commit()
+        
+        
     def setcolumn(self, row):
         row = [f"'{fila}'" if fila is not None else "null" for fila in row]
         return row
         
     def borrado(self,usuario):
         self._cursor.execute(f"DELETE FROM usuarios WHERE usuario= '{usuario}'")
-        self._conn.commit()
-        self._conn.close()
+        self._connection.commit()
+        self._connection.close()
 
     def leer_usuarios(self):
             self._cursor.execute("SELECT id_usuario, usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 2")
@@ -67,9 +72,10 @@ class AutosDb(Conection):
         self._cursor =  self._connection.cursor()
         
     def leer_autos(self,numero):
-        self._cursor.execute(f"SELECT * FROM autos WHERE id_dueño = '{numero}'")
-        rows = self._cursor.fetchall()
-        return rows
+            self._cursor.execute(f"SELECT * FROM autos WHERE id_dueño = '{numero}'")
+            rows = self._cursor.fetchall()
+            return rows
+    
     
 class PermisosDb(Conection):
     def __init__(self):

@@ -9,6 +9,7 @@ class ListadoController(): # Logica de negocio
     def __init__(self,main):
         self._main = main
         self._rows = []
+        self._rows_autos = []
         # self._rows_id = []
 
     def listado_usuarios_mecanicos(self):
@@ -36,15 +37,16 @@ class ListadoController(): # Logica de negocio
     
     def cargar_listado_autos(self,numero):
         
-        self._rows = db2.leer_autos(self._rows[numero-1][0])   
-        self._main.table_auto.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self._main.table_auto.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
-        self._main.table_auto.setRowCount(len(self._rows) +1)
-        self._main.table_auto.setColumnCount(len(self._rows[0]))
+        if db2.leer_autos(self._rows[numero-1][0]) != []:
+            self._rows_autos = db2.leer_autos(self._rows[numero-1][0])
+            self._main.table_auto.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+            self._main.table_auto.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+            self._main.table_auto.setRowCount(len(self._rows_autos) +1)
+            self._main.table_auto.setColumnCount(len(self._rows_autos[0]))
 
-        for i in range(len(self._rows)):
-            for j in range(len(self._rows[0])):
-                self._main.table_auto.setItem(i+1,j,QtWidgets.QTableWidgetItem(f'{self._rows[i][j]}'))
+            for i in range(len(self._rows_autos)):
+                for j in range(len(self._rows_autos[0])):
+                    self._main.table_auto.setItem(i+1,j,QtWidgets.QTableWidgetItem(f'{self._rows_autos[i][j]}'))
         
         self._main.stackedWidget.setCurrentIndex(5)
         self._main.table_auto.setColumnHidden(1, True)

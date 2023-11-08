@@ -296,9 +296,26 @@
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_17">
                <item>
+                <spacer name="horizontalSpacer_6">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
                 <widget class="QPushButton" name="refrescar_2">
                  <property name="text">
                   <string>refrescar</string>
+                 </property>
+                 <property name="icon">
+                  <iconset>
+                   <normaloff>../icons/reload_normal_hover.png</normaloff>../icons/reload_normal_hover.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -985,6 +1002,19 @@
                </rect>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_11">
+               <item>
+                <spacer name="horizontalSpacer_7">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
                <item>
                 <widget class="QPushButton" name="refrescar_3">
                  <property name="text">
@@ -2123,6 +2153,19 @@
                  </property>
                  <property name="scaledContents">
                   <bool>true</bool>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_3">
+                 <property name="geometry">
+                  <rect>
+                   <x>210</x>
+                   <y>540</y>
+                   <width>191</width>
+                   <height>20</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string/>
                  </property>
                 </widget>
                </widget>
@@ -3341,7 +3384,7 @@
                           <string/>
                          </property>
                          <property name="pixmap">
-                          <pixmap>../../../../Desktop/icons8-cars-128.svg</pixmap>
+                          <pixmap>../icons/icons8-cars-128.svg</pixmap>
                          </property>
                         </widget>
                        </widget>
