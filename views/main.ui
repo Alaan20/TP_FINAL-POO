@@ -296,6 +296,13 @@
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_17">
                <item>
+                <widget class="QPushButton" name="refrescar_2">
+                 <property name="text">
+                  <string>refrescar</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
                 <spacer name="horizontalSpacer_30">
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
@@ -978,6 +985,13 @@
                </rect>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_11">
+               <item>
+                <widget class="QPushButton" name="refrescar_3">
+                 <property name="text">
+                  <string>refrescar</string>
+                 </property>
+                </widget>
+               </item>
                <item>
                 <spacer name="horizontalSpacer_16">
                  <property name="orientation">
