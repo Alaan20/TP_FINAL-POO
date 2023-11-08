@@ -53,8 +53,8 @@ class PersonaDb(Conection):
         
     def borrado(self,usuario):
         self._cursor.execute(f"DELETE FROM usuarios WHERE usuario= '{usuario}'")
-        self._conn.commit()
-        self._conn.close()
+        self._connection.commit()
+        self._connection.close()
 
     def leer_usuarios(self):
             self._cursor.execute("SELECT id_usuario, usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 2")
