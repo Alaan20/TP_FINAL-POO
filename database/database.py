@@ -47,16 +47,17 @@ class PersonaDb(Conection):
         return row
         
     def borrado(self,usuario):
-        self._cursor.execute(f"UPDATE usuarios SET estado='i' WHERE id_usuario={usuario}")
-        self._connection.commit()
+        self._cursor.execute(f"DELETE FROM usuarios WHERE usuario= '{usuario}'")
+        self._conn.commit()
+        self._conn.close()
 
     def leer_usuarios(self):
-            self._cursor.execute("SELECT id_usuario, usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 2 and estado= 'a' " )
+            self._cursor.execute("SELECT id_usuario, usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 2")
             rows = self._cursor.fetchall()
             return rows
     
     def leer_mecanicos(self):
-            self._cursor.execute("SELECT id_usuario, usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 1 and estado= 'a' ")
+            self._cursor.execute("SELECT id_usuario, usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 1")
             rows = self._cursor.fetchall()
             return rows
 

@@ -4,7 +4,6 @@ from model.listados import ListadoController
 from model.busqueda import BusquedaController
 from model.editar import EditarController
 from model.agregar_usuarios import Agregar
-from model.eliminar import Eliminar
 class Main():
         def __init__(self,row,app,main):
             self._row = row
@@ -14,7 +13,6 @@ class Main():
             self._busquedaController = BusquedaController(main)
             self._editar = EditarController(main)
             self._agregar=Agregar(main)
-            self._eliminar=Eliminar(main)
             
             if self._row[8] == 1:
                 db.mecanico_vista(self._main)
@@ -33,8 +31,6 @@ class Main():
             self._main.pushButton_22.clicked.connect(self._editar.guardar_cambios)
             self._main.pushButton_14.clicked.connect(self._agregar.agregar_usuario)
             self._main.pushButton_21.clicked.connect(self._agregar.agregar_mecanico)
-            self._main.pushButton_13.clicked.connect(self._eliminar.eliminar_usuarios)
-            self._main.pushButton_20.clicked.connect(self._eliminar.elimininar_mecanico)
             self._main.refrescar_2.clicked.connect(lambda:self._mainController.listado_usuarios_mecanicos())
             self._main.refrescar_3.clicked.connect(lambda:self._mainController.listado_usuarios_mecanicos())
             
