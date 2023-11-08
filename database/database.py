@@ -42,6 +42,11 @@ class PersonaDb(Conection):
         else:
             return False
     
+    def actualizar_admin(self,usuario,clave):
+        self._cursor.execute(f"UPDATE usuarios SET usuario ='{usuario}', clave ='{clave}' WHERE id_usuario = 1")
+        self._connection.commit()
+        
+        
     def setcolumn(self, row):
         row = [f"'{fila}'" if fila is not None else "null" for fila in row]
         return row
