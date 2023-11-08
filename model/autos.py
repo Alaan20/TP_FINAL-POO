@@ -20,7 +20,8 @@ class AutosController():
         lista_auto.append(self._main.lineEdit_58.text())
         lista_auto.append(self._main.lineEdit_62.text())
         lista_auto.append(self._main.textEdit_3.toPlainText())
-        print(lista_auto)
+        
         self._bd2.agregar_autos(lista_auto)
         self._main.error_6.setStyleSheet("color:blue")
         self._main.error_6.setText("auto cragado correctamente")
+
