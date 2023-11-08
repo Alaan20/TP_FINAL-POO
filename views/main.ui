@@ -990,6 +990,10 @@
                  <property name="text">
                   <string>refrescar</string>
                  </property>
+                 <property name="icon">
+                  <iconset>
+                   <normaloff>../icons/reload_normal_hover.png</normaloff>../icons/reload_normal_hover.png</iconset>
+                 </property>
                 </widget>
                </item>
                <item>
