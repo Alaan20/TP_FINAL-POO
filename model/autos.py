@@ -23,4 +23,4 @@ class AutosController():
         print(lista_auto)
         self._bd2.agregar_autos(lista_auto)
         self._main.error_6.setStyleSheet("color:blue")
-        self._main.error_6.setText("nuevo auto a la coleccion papu!")
+        self._main.error_6.setText("auto cragado correctamente")
