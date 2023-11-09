@@ -68,7 +68,7 @@
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,0,0,2,0,0">
+         <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,0,2,0,0">
           <property name="spacing">
            <number>24</number>
           </property>
@@ -96,17 +96,6 @@
              </size>
             </property>
            </spacer>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_6">
-            <property name="text">
-             <string>Añadir mecanico</string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>../icons/edit_normal_hover.png</normaloff>../icons/edit_normal_hover.png</iconset>
-            </property>
-           </widget>
           </item>
           <item>
            <widget class="QPushButton" name="pushButton_4">
@@ -206,7 +195,7 @@
              <bool>false</bool>
             </property>
             <property name="currentIndex">
-             <number>6</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="page_mecanic">
              <widget class="QFrame" name="frame_25">
@@ -2867,7 +2856,7 @@
                      <property name="geometry">
                       <rect>
                        <x>0</x>
-                       <y>320</y>
+                       <y>360</y>
                        <width>261</width>
                        <height>21</height>
                       </rect>
@@ -2882,6 +2871,35 @@
                      </property>
                      <property name="text">
                       <string/>
+                     </property>
+                    </widget>
+                    <widget class="QRadioButton" name="radioButton_3">
+                     <property name="geometry">
+                      <rect>
+                       <x>120</x>
+                       <y>330</y>
+                       <width>82</width>
+                       <height>17</height>
+                      </rect>
+                     </property>
+                     <property name="text">
+                      <string>Macanico</string>
+                     </property>
+                    </widget>
+                    <widget class="QRadioButton" name="radioButton_4">
+                     <property name="geometry">
+                      <rect>
+                       <x>40</x>
+                       <y>330</y>
+                       <width>82</width>
+                       <height>17</height>
+                      </rect>
+                     </property>
+                     <property name="text">
+                      <string>Cilente</string>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
                      </property>
                     </widget>
                    </widget>
