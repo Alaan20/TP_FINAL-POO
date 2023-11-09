@@ -195,7 +195,7 @@
              <bool>false</bool>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>3</number>
             </property>
             <widget class="QWidget" name="page_mecanic">
              <widget class="QFrame" name="frame_25">
@@ -1758,27 +1758,27 @@
                        </widget>
                       </item>
                       <item row="8" column="3">
-                       <widget class="QLineEdit" name="lineEdit_20"/>
+                       <widget class="QLineEdit" name="lineEdit_85"/>
                       </item>
                       <item row="4" column="3">
-                       <widget class="QLineEdit" name="lineEdit_17">
+                       <widget class="QLineEdit" name="lineEdit_82">
                         <property name="inputMethodHints">
                          <set>Qt::ImhDigitsOnly|Qt::ImhPreferNumbers</set>
                         </property>
                        </widget>
                       </item>
                       <item row="5" column="3">
-                       <widget class="QLineEdit" name="lineEdit_19">
+                       <widget class="QLineEdit" name="lineEdit_83">
                         <property name="inputMethodHints">
                          <set>Qt::ImhDigitsOnly|Qt::ImhPreferNumbers</set>
                         </property>
                        </widget>
                       </item>
                       <item row="9" column="3">
-                       <widget class="QLineEdit" name="lineEdit_23"/>
+                       <widget class="QLineEdit" name="lineEdit_86"/>
                       </item>
                       <item row="6" column="3">
-                       <widget class="QLineEdit" name="lineEdit_6"/>
+                       <widget class="QLineEdit" name="lineEdit_84"/>
                       </item>
                       <item row="6" column="1">
                        <widget class="QLabel" name="label_2">
@@ -1788,7 +1788,7 @@
                        </widget>
                       </item>
                       <item row="2" column="3">
-                       <widget class="QLineEdit" name="lineEdit_14">
+                       <widget class="QLineEdit" name="lineEdit_81">
                         <property name="autoFillBackground">
                          <bool>true</bool>
                         </property>
@@ -1798,7 +1798,7 @@
                        </widget>
                       </item>
                       <item row="1" column="3">
-                       <widget class="QLineEdit" name="lineEdit_18"/>
+                       <widget class="QLineEdit" name="lineEdit_80"/>
                       </item>
                      </layout>
                     </widget>
@@ -1806,13 +1806,42 @@
                      <property name="geometry">
                       <rect>
                        <x>0</x>
-                       <y>320</y>
+                       <y>360</y>
                        <width>251</width>
                        <height>20</height>
                       </rect>
                      </property>
                      <property name="text">
                       <string/>
+                     </property>
+                    </widget>
+                    <widget class="QRadioButton" name="radioButton_3">
+                     <property name="geometry">
+                      <rect>
+                       <x>120</x>
+                       <y>330</y>
+                       <width>82</width>
+                       <height>17</height>
+                      </rect>
+                     </property>
+                     <property name="text">
+                      <string>Macanico</string>
+                     </property>
+                    </widget>
+                    <widget class="QRadioButton" name="radioButton_4">
+                     <property name="geometry">
+                      <rect>
+                       <x>40</x>
+                       <y>330</y>
+                       <width>82</width>
+                       <height>17</height>
+                      </rect>
+                     </property>
+                     <property name="text">
+                      <string>Cilente</string>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
                      </property>
                     </widget>
                    </widget>
@@ -2856,7 +2885,7 @@
                      <property name="geometry">
                       <rect>
                        <x>0</x>
-                       <y>360</y>
+                       <y>330</y>
                        <width>261</width>
                        <height>21</height>
                       </rect>
@@ -2871,35 +2900,6 @@
                      </property>
                      <property name="text">
                       <string/>
-                     </property>
-                    </widget>
-                    <widget class="QRadioButton" name="radioButton_3">
-                     <property name="geometry">
-                      <rect>
-                       <x>120</x>
-                       <y>330</y>
-                       <width>82</width>
-                       <height>17</height>
-                      </rect>
-                     </property>
-                     <property name="text">
-                      <string>Macanico</string>
-                     </property>
-                    </widget>
-                    <widget class="QRadioButton" name="radioButton_4">
-                     <property name="geometry">
-                      <rect>
-                       <x>40</x>
-                       <y>330</y>
-                       <width>82</width>
-                       <height>17</height>
-                      </rect>
-                     </property>
-                     <property name="text">
-                      <string>Cilente</string>
-                     </property>
-                     <property name="checked">
-                      <bool>true</bool>
                      </property>
                     </widget>
                    </widget>
