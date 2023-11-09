@@ -52,17 +52,16 @@ class PersonaDb(Conection):
         return row
         
     def borrado(self,usuario):
-        self._cursor.execute(f"DELETE FROM usuarios WHERE usuario= '{usuario}'")
+        self._cursor.execute(f"UPDATE usuarios SET estado='i' WHERE id_usuario={usuario}")
         self._connection.commit()
-        self._connection.close()
 
     def leer_usuarios(self):
-            self._cursor.execute("SELECT id_usuario, usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 2")
+            self._cursor.execute("SELECT id_usuario, usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 2 and estado='a' ")
             rows = self._cursor.fetchall()
             return rows
     
     def leer_mecanicos(self):
-            self._cursor.execute("SELECT id_usuario, usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 1")
+            self._cursor.execute("SELECT id_usuario, usuario, nombre, apellido, dni, correo_electronico, nro_telefono FROM usuarios WHERE id_rol = 1 and estado='a' ")
             rows = self._cursor.fetchall()
             return rows
 
@@ -75,7 +74,9 @@ class AutosDb(Conection):
             self._cursor.execute(f"SELECT * FROM autos WHERE id_dueño = '{numero}'")
             rows = self._cursor.fetchall()
             return rows
-    
+    def agregar_autos(self,row):
+        self._cursor.execute(f"insert into autos (patente,id_dueño,marca,modelo,año,kilometros,tipo_combustible,notas) values ('{row[0]}',{row[1]},'{row[2]}','{row[3]}',{row[4]},{row[5]},'{row[6]}','{row[7]}')")
+        self._connection.commit()
     
 class PermisosDb(Conection):
     def __init__(self):

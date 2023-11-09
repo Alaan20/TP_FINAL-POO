@@ -28,7 +28,7 @@ class EditarController():
     
     def editar_mecanicos(self):
         self._selected_rows = self._main.Tableuser_2.selectedItems()
-        self._id = self._main.table_user.item(self._main.table_user.currentRow(),0)
+        self._id = self._main.Tableuser_2.item(self._main.Tableuser_2.currentRow(),0)
         if self._selected_rows:
             # Cambiar a la nueva página
             self._main.stackedWidget.setCurrentIndex(6)

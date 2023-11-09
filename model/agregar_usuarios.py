@@ -13,8 +13,8 @@ class Agregar():
         
     def agregar_usuario(self):
         llave=True
-
         try:
+            llave=True
             self._lista=[]
             self.validar_datos(self._main.lineEdit_18.text(),self._lista) #nombre ususario#
             self.validar_datos(self._main.lineEdit_14.text(),self._lista) #contraseña#
@@ -65,3 +65,4 @@ class Agregar():
             self._bd.crear(self._lista,1)
             self._main.error_3.setStyleSheet("color:blue")
             self._main.error_3.setText("mecanico agregado exitosamente!")
+        
