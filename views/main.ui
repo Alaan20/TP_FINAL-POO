@@ -206,7 +206,7 @@
              <bool>false</bool>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>6</number>
             </property>
             <widget class="QWidget" name="page_mecanic">
              <widget class="QFrame" name="frame_25">
@@ -3248,9 +3248,6 @@
                         </property>
                        </widget>
                       </item>
-                      <item row="1" column="3">
-                       <widget class="QLineEdit" name="lineEdit_60"/>
-                      </item>
                       <item row="2" column="1">
                        <widget class="QLabel" name="label_81">
                         <property name="text">
@@ -3296,8 +3293,78 @@
                         </property>
                        </widget>
                       </item>
+                      <item row="1" column="3">
+                       <widget class="QComboBox" name="comboBox">
+                        <item>
+                         <property name="text">
+                          <string>Toyota</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>Fiat</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>Volkswagen</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>Renault</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>Peugeot</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>Chevrolet</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>Ford</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>Citroën</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>Nissan</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>Jeep</string>
+                         </property>
+                        </item>
+                       </widget>
+                      </item>
                       <item row="7" column="3">
-                       <widget class="QLineEdit" name="lineEdit_62"/>
+                       <widget class="QComboBox" name="comboBox_2">
+                        <item>
+                         <property name="text">
+                          <string>GNC</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>Nafta</string>
+                         </property>
+                        </item>
+                        <item>
+                         <property name="text">
+                          <string>Diesel</string>
+                         </property>
+                        </item>
+                       </widget>
                       </item>
                      </layout>
                     </widget>
