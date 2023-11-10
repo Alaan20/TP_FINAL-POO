@@ -7,8 +7,11 @@ class ServiceDao:
         self._conexion = psycopg2.connect(
             database = "[autosoft]",
             user= "postgres",
+            #database = "tp_final_poo",
+            #password = "bd2372",
             password = "teclas",
             host="tpphost.duckdns.org",
+            
             port = "5432")
         self._cursor = self._conexion.cursor()
 
@@ -30,14 +33,16 @@ class ServiceDao:
                 j = 1
             else:
                 consulta += f",'{i}'"
-        print(consulta)
+        consulta += f",'{patente}'"
+        #print(consulta)
         if datos[0] == "Basico":
-            campos = "tipo_service,amortiguadores,presion_neumaticos,tuerca_neumaticos,luces_y_baul,bateria,aceite_y_filtro,aceite_diferencial,filtro_combustible,patente"
-            print(campos)
-            self._cursor.execute(f"INSERT INTO service ({campos}) VALUES ({consulta},'{patente}')")
-            self._conexion.commit()
-        #elif len(datos) == 16:
-        #    campos = "tipo_service,amortiguadores,presion_neumaticos,tuerca_neumaticos,Luces y baul,bateria,aceite_y_filtro,aceite_diferencial,filtro_combustible,liquido,revision_liquido,bisagras_engrase,caño_de_escape,correa_direccion,airbag,inyeccion,sensores_actuadores,patente"
+            campos = "tipo_service,luces_y_baul,amortiguadores,presion_neumaticos,tuerca_neumaticos,bateria,filtro_combustible,aceite_diferencial,aceite_y_filtro,patente"
+        elif datos[0] == "Estandar":
+            campos = "tipo_service,luces_y_baul,amortiguadores,presion_neumaticos,tuerca_neumaticos,bateria,filtro_combustible,aceite_diferencial,aceite_y_filtro,liquido,revision_liquido,bisagras_engrase,caño_de_escape,correa_direccion,airbag,inyeccion,sensores_actuadores,patente"
         ##16 en adelante no utilizar
-        #else:
-        #    #cinturon_seguridad,climatizacion,historial_fallas,instrumental,escaneo_computadora,patente"
+        elif datos[0] == "Completo":
+            campos = "tipo_service,luces_y_baul,amortiguadores,presion_neumaticos,tuerca_neumaticos,bateria,filtro_combustible,aceite_diferencial,aceite_y_filtro,liquido,revision_liquido,bisagras_engrase,caño_de_escape,correa_direccion,airbag,inyeccion,sensores_actuadores,cinturon_seguridad,climatizacion,historial_fallas,instrumental,escaneo_computadora,patente"
+        print(campos)
+        print(f"{consulta}")
+        self._cursor.execute(f"INSERT INTO service ({campos}) VALUES ({consulta})")
+        self._conexion.commit()

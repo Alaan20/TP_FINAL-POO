@@ -81,15 +81,7 @@ class ConcreteBuilderVentana (BuilderVentana):
         self.__asigno_combos()
         self._ventana.armo_widget()
         return self.ventana
-    
-    def listo_hijos (self):
-        l = []
-        try:
-            for i in range(1,23):
-                combo = self.findChild(QComboBox,f"combo{i}")
-                l.append(combo.currentText())
-        except AttributeError:
-            return l
+
 
 class Ventana (QWidget):
     
@@ -115,6 +107,17 @@ class Ventana (QWidget):
         layout.addLayout(self.__layout_etiquetas)
         layout.addLayout(self.__layout_combos)
         self.setLayout(layout)
+    
+    def listo_hijos (self):
+        l = []
+        try:
+            for i in range(0,23):
+                combo = self.findChild(QComboBox,f"combo{i}")
+                print(i)
+                if combo.currentText() is not None:
+                    l.append(combo.currentText())
+        except AttributeError:
+            return l
 
 
 class Director ():
@@ -147,7 +150,6 @@ class VentanaBasica:
     def armo_service (self, cadena):
         self._director.builder = ConcreteBuilderVentana()
         return self._director.preparo_ventana(cadena)
-
 
 #1. partes de labels,combo
 #2. creo_layout
