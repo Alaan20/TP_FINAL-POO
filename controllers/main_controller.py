@@ -7,6 +7,17 @@ from model.agregar_usuarios import Agregar
 from model.eliminar import Eliminar
 from model.autos import AutosController
 
+class VistaMecanico:
+    def mostrar_vista(self, main,app):
+        db.mecanico_vista(main)
+        main.show()
+        app.exec()
+            
+class VistaAdministrador:
+    def mostrar_vista(self, main,app):
+        main.show()
+        app.exec()
+
 class Main():
         def __init__(self,row,app,main):
             self._row = row
@@ -19,14 +30,18 @@ class Main():
             self._eliminar = Eliminar(main)
             self._autos=AutosController(main)
             
+            print(self._row[8])
             if self._row[8] == 1:
-                db.mecanico_vista(self._main)
-                
+                vista = VistaMecanico()
+            else:
+                vista = VistaAdministrador()
+            
+            vista.mostrar_vista(main,app)
+                    
             self._mainController.listado_usuarios_mecanicos()
             self._main.pushButton_3.clicked.connect(lambda: main.stackedWidget.setCurrentIndex(0))
             self._main.pushButton_5.clicked.connect(lambda: main.stackedWidget.setCurrentIndex(1))
             self._main.pushButton_4.clicked.connect(lambda: main.stackedWidget.setCurrentIndex(3))
-            self._main.pushButton_6.clicked.connect(lambda: main.stackedWidget.setCurrentIndex(2))
             self._main.pushButton.clicked.connect(lambda: main.stackedWidget.setCurrentIndex(4))
             self._main.table_user.cellDoubleClicked.connect(lambda: self._mainController.cargar_listado_autos(self._main.table_user.currentRow()) if main.table_user.currentRow() != 0 else None)
             self._main.pushButton_2.clicked.connect(self._busquedaController.buscar_usuarios)
@@ -43,5 +58,4 @@ class Main():
             self._main.pushButton_20.clicked.connect(self._eliminar.elimininar_mecanico)
             self._main.pushButton_10.clicked.connect(lambda: main.stackedWidget.setCurrentIndex(7))
             self._main.pushButton_23.clicked.connect(self._autos.agregar_autos)
-            self._main.show()
-            app.exec()
+            self._main.pushButton_9.clicked.connect(self._autos.editar_autos)
