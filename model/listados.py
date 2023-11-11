@@ -13,6 +13,7 @@ class ListadoController(): # Logica de negocio
         # self._rows_id = []
 
     def listado_usuarios_mecanicos(self):
+            print("hola")
             self._rows = db1.leer_mecanicos()
             self._main.Tableuser_2.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
             self._main.Tableuser_2.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)

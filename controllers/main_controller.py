@@ -1,5 +1,5 @@
 from  PyQt5 import QtWidgets, uic
-from model.permisos import *
+from model.permisos import VistaMecanico
 from model.listados import ListadoController
 from model.busqueda import BusquedaController
 from model.editar import EditarController
@@ -7,11 +7,10 @@ from model.agregar_usuarios import Agregar
 from model.eliminar import Eliminar
 from model.autos import AutosController
 
-class VistaMecanico:
-    def mostrar_vista(self, main,app):
-        db.mecanico_vista(main)
-        main.show()
-        app.exec()
+# class VistaMecanico:
+#     def mostrar_vista(self, main,app):
+#         main.show()
+#         app.exec()
             
 class VistaAdministrador:
     def mostrar_vista(self, main,app):
@@ -30,14 +29,13 @@ class Main():
             self._eliminar = Eliminar(main)
             self._autos=AutosController(main)
             
-            print(self._row[8])
             if self._row[8] == 1:
                 vista = VistaMecanico()
             else:
                 vista = VistaAdministrador()
+                
+            vista.mostrar_vista(main)
             
-            vista.mostrar_vista(main,app)
-                    
             self._mainController.listado_usuarios_mecanicos()
             self._main.pushButton_3.clicked.connect(lambda: main.stackedWidget.setCurrentIndex(0))
             self._main.pushButton_5.clicked.connect(lambda: main.stackedWidget.setCurrentIndex(1))
@@ -59,3 +57,5 @@ class Main():
             self._main.pushButton_10.clicked.connect(lambda: main.stackedWidget.setCurrentIndex(7))
             self._main.pushButton_23.clicked.connect(self._autos.agregar_autos)
             self._main.pushButton_9.clicked.connect(self._autos.editar_autos)
+            main.show()
+            app.exec()
