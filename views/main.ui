@@ -3859,7 +3859,7 @@
               </row>
               <column>
                <property name="text">
-                <string>patente</string>
+                <string>nro_service</string>
                </property>
                <property name="font">
                 <font>
@@ -3874,12 +3874,12 @@
               </column>
               <column>
                <property name="text">
-                <string>id_dueño</string>
+                <string>tipo_service</string>
                </property>
               </column>
               <column>
                <property name="text">
-                <string notr="true">marca</string>
+                <string notr="true">luces</string>
                </property>
                <property name="font">
                 <font>

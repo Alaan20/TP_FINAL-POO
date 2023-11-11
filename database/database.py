@@ -89,7 +89,16 @@ class AutosDb(Conection):
         self._cursor.execute(f"DELETE FROM autos WHERE patente = '{patente}'")
         self._connection.commit()
 
-
+class ServiceDb(Conection):
+    def __init__(self):
+        super().__init__()
+        self._cursor =  self._connection.cursor()
+    
+    def leer_service(self,patente):
+            self._cursor.execute(f"SELECT * FROM service WHERE patente = '{patente}'")
+            rows = self._cursor.fetchall()
+            return rows
+        
 class PermisosDb(Conection):
     def __init__(self):
         super().__init__()
