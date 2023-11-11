@@ -35,18 +35,28 @@ class ListadoController(): # Logica de negocio
             self._main.Tableuser_2.setColumnHidden(0, True)
             self._main.table_user.setColumnHidden(0, True)
     
-    def cargar_listado_autos(self,numero):
-        
-        if db2.leer_autos(self._rows[numero-1][0]) != []:
-            self._rows_autos = db2.leer_autos(self._rows[numero-1][0])
-            self._main.table_auto.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-            self._main.table_auto.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
-            self._main.table_auto.setRowCount(len(self._rows_autos) +1)
-            self._main.table_auto.setColumnCount(len(self._rows_autos[0]))
-
-            for i in range(len(self._rows_autos)):
-                for j in range(len(self._rows_autos[0])):
-                    self._main.table_auto.setItem(i+1,j,QtWidgets.QTableWidgetItem(f'{self._rows_autos[i][j]}'))
-        
+    def autos_usuario(self,numero):
+        self._rows_autos = db2.leer_autos(numero)
+        if db2.leer_autos(numero) != []:
+            self._rows_autos = db2.leer_autos(numero)
+            self.llenar_tabla()
         self._main.stackedWidget.setCurrentIndex(5)
         self._main.table_auto.setColumnHidden(1, True)
+        
+    def cargar_listado_autos(self,numero):
+        if db2.leer_autos(self._rows[numero-1][0]) != []:
+            self._rows_autos = db2.leer_autos(self._rows[numero-1][0])
+            self.llenar_tabla()
+        self._main.stackedWidget.setCurrentIndex(5)
+        self._main.table_auto.setColumnHidden(1, True)
+        
+    def llenar_tabla(self):       
+        self._main.table_auto.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self._main.table_auto.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self._main.table_auto.setRowCount(len(self._rows_autos) +1)
+        self._main.table_auto.setColumnCount(len(self._rows_autos[0]))
+
+        for i in range(len(self._rows_autos)):
+            for j in range(len(self._rows_autos[0])):
+                self._main.table_auto.setItem(i+1,j,QtWidgets.QTableWidgetItem(f'{self._rows_autos[i][j]}'))
+        

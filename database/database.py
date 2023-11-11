@@ -79,11 +79,15 @@ class AutosDb(Conection):
         self._cursor.execute(f"insert into autos (patente,id_dueño,marca,modelo,año,kilometros,tipo_combustible,notas) values ('{row[0]}',{row[1]},'{row[2]}','{row[3]}',{row[4]},{row[5]},'{row[6]}','{row[7]}')")
         self._connection.commit()
         
-    # def actualizar_auto(self,id_auto,row):
-    #     self._cursor.execute(f"SELECT * FROM autos WHERE patente = '{row[0]}'")
-    #     if self._cursor.fetchone() is not None:
-    #         self._cursor.execute(f"UPDATE autos SET  patente ='{row[0]}', marca ='{row[2]}', modelo ='{row[3]}', año ='{row[4]}', kilometros ='{row[5]}', tipo_combustible='{row[6]}', notas='{row[7]}' WHERE id_auto = '{row[1]}'")
-    #         self._connection.commit()
+    def actualizar_auto(self,row):
+        self._cursor.execute(f"SELECT * FROM autos WHERE patente = '{row[0]}'")
+        if self._cursor.fetchone() is not None:
+            self._cursor.execute(f"UPDATE autos SET marca ='{row[2]}', modelo ='{row[3]}', año ='{row[4]}', kilometros ='{row[5]}', tipo_combustible='{row[6]}', notas='{row[7]}' WHERE patente = '{row[0]}'")
+            self._connection.commit()
+            
+    def borrar_auto(self,patente):
+        self._cursor.execute(f"DELETE FROM autos WHERE patente = '{patente}'")
+        self._connection.commit()
 
 
 class PermisosDb(Conection):
