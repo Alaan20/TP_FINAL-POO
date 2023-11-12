@@ -1,15 +1,14 @@
 from  PyQt5 import QtWidgets
-from database.database import AutosDb,PersonaDb, ServiceDb 
+from database.database import ServiceDb 
+from controllers import controller_2
 
 class ServiceController():
     def __init__(self,main):
         self._main=main
-        self._bd1=PersonaDb()
-        self._bd2=AutosDb()
         self._db3=ServiceDb()
         self._patente = None
         self._lista_service = []
-    
+        self._controller_2 = controller_2.ServiceController
     def mostrar_service(self):
         self._main.stackedWidget.setCurrentIndex(8)
         
@@ -30,3 +29,8 @@ class ServiceController():
                     self._main.table_informes.setItem(i+1,j,QtWidgets.QTableWidgetItem(f''))
                 else:
                     self._main.table_informes.setItem(i+1,j,QtWidgets.QTableWidgetItem(f'{self._lista_service[i][j]}'))
+    
+    def crear_service(self):
+        self._patente = self._main.table_auto.item(self._main.table_auto.currentRow(),0)
+        self._controller_2 = controller_2.ServiceController(self._patente.text())
+        self._controller_2.show()

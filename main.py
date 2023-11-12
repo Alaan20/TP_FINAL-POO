@@ -9,6 +9,5 @@ app = QtWidgets.QApplication([])
 login = uic.loadUi('views/login.ui')
 main = uic.loadUi('views/main.ui')
 db1 = PersonaDb()
-# db = Permisos()
 
 Login(app,login,main)

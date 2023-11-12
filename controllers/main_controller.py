@@ -21,12 +21,11 @@ class Main():
             self._autos=AutosController(main)
             self._vista = Vista()
             self._service = ServiceController(main)
+            
             if self._row[8] == 1:
-                #vista = VistaMecanico()
                 self._vista.mostrar_vista(main,1)
             
             elif self._row[8] == 2:
-                #vista = VistaUsuario()
                 self._vista.mostrar_vista(main,2)
                 self._main.stackedWidget.setCurrentIndex(5)
                 self._mainController.autos_usuario(self._row[0])
@@ -55,5 +54,6 @@ class Main():
             self._main.pushButton_9.clicked.connect(self._autos.editar_autos)
             self._main.pushButton_15.clicked.connect(self._autos.borrar_autos)
             self._main.pushButton_11.clicked.connect(self._service.mostrar_service)
+            self._main.pushButton_16.clicked.connect(self._service.crear_service)
             main.show()
             app.exec()
