@@ -35,3 +35,9 @@ class Vista:
         
         if self._row[0][9] is False: # listado de autos
             main.pushButton_5.hide()
+        
+        if self._row[0][10] is False: # añadir informe
+            main.pushButton_16.hide()
+        
+        if self._row[0][11] is False: # añadir informe
+            main.pushButton_18.hide()

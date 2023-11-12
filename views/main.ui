@@ -3746,30 +3746,6 @@
                 </spacer>
                </item>
                <item>
-                <widget class="QPushButton" name="pushButton_17">
-                 <property name="text">
-                  <string>Editar</string>
-                 </property>
-                 <property name="icon">
-                  <iconset>
-                   <normaloff>../icons/edit_small_normal_hover.png</normaloff>../icons/edit_small_normal_hover.png</iconset>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_46">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
                 <widget class="QPushButton" name="pushButton_18">
                  <property name="text">
                   <string>Eliminar</string>
