@@ -3698,13 +3698,13 @@
                 </spacer>
                </item>
                <item>
-                <widget class="QPushButton" name="pushButton_12">
+                <widget class="QPushButton" name="pushButton_17">
                  <property name="text">
-                  <string>Ver informes</string>
+                  <string>Regresar</string>
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>../icons/license_options_normal_hover.png</normaloff>../icons/license_options_normal_hover.png</iconset>
+                   <normaloff>../icons/back_normal_hover.png</normaloff>../icons/back_normal_hover.png</iconset>
                  </property>
                 </widget>
                </item>
