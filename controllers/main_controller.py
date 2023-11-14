@@ -43,7 +43,6 @@ class Main():
             self._main.pushButton_19.clicked.connect(self._editar.editar_mecanicos)
             self._main.pushButton_22.clicked.connect(self._editar.guardar_cambios)
             self._main.pushButton_14.clicked.connect(self._agregar.agregar_usuario)
-            self._main.pushButton_21.clicked.connect(self._agregar.agregar_mecanico)
             self._main.refrescar_2.clicked.connect(lambda: self._mainController.listado_usuarios_mecanicos())
             self._main.refrescar_3.clicked.connect(lambda: self._mainController.listado_usuarios_mecanicos())
             self._main.log_in_1.clicked.connect(self._editar.editar_admin)

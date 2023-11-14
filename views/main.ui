@@ -1857,8 +1857,8 @@
                       <rect>
                        <x>0</x>
                        <y>360</y>
-                       <width>251</width>
-                       <height>20</height>
+                       <width>331</width>
+                       <height>31</height>
                       </rect>
                      </property>
                      <property name="text">
@@ -1870,12 +1870,12 @@
                       <rect>
                        <x>120</x>
                        <y>330</y>
-                       <width>82</width>
-                       <height>17</height>
+                       <width>91</width>
+                       <height>31</height>
                       </rect>
                      </property>
                      <property name="text">
-                      <string>Macanico</string>
+                      <string>Mecanico</string>
                      </property>
                     </widget>
                     <widget class="QRadioButton" name="radioButton_4">
@@ -1883,8 +1883,8 @@
                       <rect>
                        <x>40</x>
                        <y>330</y>
-                       <width>82</width>
-                       <height>17</height>
+                       <width>91</width>
+                       <height>31</height>
                       </rect>
                      </property>
                      <property name="text">
@@ -1948,8 +1948,8 @@
                           <rect>
                            <x>10</x>
                            <y>10</y>
-                           <width>131</width>
-                           <height>131</height>
+                           <width>171</width>
+                           <height>151</height>
                           </rect>
                          </property>
                          <property name="text">
