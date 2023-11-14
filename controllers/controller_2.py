@@ -1,23 +1,21 @@
-#from Modelo.interfaz_impresion import MainWindow
 from PyQt5.QtWidgets import *
-from Vista.builder_ventana import *
-from Dao.auto_dao import AutoDao
-from Dao.service_dao import ServiceDao
+from views.builder_ventana import *
+from database.auto_dao import AutoDao
+from database.service_dao import ServiceDao
 import sys
 
 app = QApplication([])
-# mw = MainWindow()
 
 class ServiceController(QWidget):
     
-    def __init__(self):
+    def __init__(self,patente):
         super().__init__()
-        self.gui_service()
+        self.gui_service(patente)
         self.auto_dao = AutoDao()
         self.__service_dao = ServiceDao()
         self.__validacion = bool
     
-    def gui_service (self):
+    def gui_service (self,patente):
         layout = QVBoxLayout()
         self.__combo_box = QComboBox()
         self.__combo_box.addItems(["Basico","Estandar","Completo"])
@@ -25,13 +23,13 @@ class ServiceController(QWidget):
         self.__combo_box.currentTextChanged.connect(self.__actualizar_ventana)
         self.etiqueta1 = QLabel()
         self.line = QLineEdit()
-        self.line.setPlaceholderText("Ingrese una patente")
+        self.line.setText(patente)
         self.etiqueta1.setMaximumSize(400,100)
         self.line.textChanged.connect(self.__busco_auto)
         
-        self.__ventana_basica = VentanaBasica().armo_service("Basico")
-        self.__ventana_estandar = VentanaBasica().armo_service("Estandar")
-        self.__ventana_completa = VentanaBasica().armo_service("Completo")
+        self.__ventana_basica = VentanaGeneral().armo_service("Basico")
+        self.__ventana_estandar = VentanaGeneral().armo_service("Estandar")
+        self.__ventana_completa = VentanaGeneral().armo_service("Completo")
 
         self.__btn = QPushButton("Guardar")
 
@@ -100,9 +98,9 @@ class ServiceController(QWidget):
         self.etiqueta1.setMaximumSize(500,15)
         self.etiqueta1.setMinimumSize(500,15)
 
-class Service():
-    
-    def __init__(self):
-        self.service_controller = ServiceController()
-        self.service_controller.show()
-        app.exec()
+# class Service():
+#     def __init__(self,patente):
+#         self._patente = patente
+#         self.service_controller = ServiceController(patente)
+#         self.service_controller.show()
+#         app.exec()
