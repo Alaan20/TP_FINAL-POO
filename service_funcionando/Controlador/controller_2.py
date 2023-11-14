@@ -1,6 +1,5 @@
 #from Modelo.interfaz_impresion import MainWindow
 from PyQt5.QtWidgets import *
-#from Vista.ventana import VentanaService 
 from Vista.builder_ventana import *
 from Dao.auto_dao import AutoDao
 from Dao.service_dao import ServiceDao
@@ -100,7 +99,6 @@ class ServiceController(QWidget):
         self.etiqueta1.setFixedSize(500,15)
         self.etiqueta1.setMaximumSize(500,15)
         self.etiqueta1.setMinimumSize(500,15)
-        self.etiqueta1.setStyleSheet("background-color: cyan")
 
 class Service():
     

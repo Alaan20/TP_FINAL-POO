@@ -40,33 +40,33 @@ class ConcreteBuilderVentana (BuilderVentana):
         return ventana
 
     def ventana_basica(self):
-        self._ventana.agregar(QLabel("Elementos de Seguridad: Revision y reposicion de luces exteriores y baul"),"Label")
-        self._ventana.agregar(QLabel("Elementos de Seguridad: Amortiguadores"),"Label")
-        self._ventana.agregar(QLabel("Elementos de Seguridad: Revision general de presion de neumaticos"),"Label")
-        self._ventana.agregar(QLabel("Elementos de Seguridad: Revision tuerca neumaticos"),"Label")
-        self._ventana.agregar(QLabel("Fluidos del Vehiculo: Bateria"),"Label")
-        self._ventana.agregar(QLabel("Lubricantes y Filtros: Revision filtro de combustible"),"Label")
-        self._ventana.agregar(QLabel("Lubricantes y Filtros: Revision aceite diferencial"),"Label")
-        self._ventana.agregar(QLabel("Lubricantes y Filtros: Cambio de aceite y filtro"),"Label")
+        self._ventana.agregar(QLabel("Elementos de Seguridad: Revision y reposicion de luces exteriores y baul"),"Label",1)
+        self._ventana.agregar(QLabel("Elementos de Seguridad: Amortiguadores"),"Label",1)
+        self._ventana.agregar(QLabel("Elementos de Seguridad: Revision general de presion de neumaticos"),1,"Label")
+        self._ventana.agregar(QLabel("Elementos de Seguridad: Revision tuerca neumaticos"),"Label",1)
+        self._ventana.agregar(QLabel("Fluidos del Vehiculo: Bateria"),"Label",1)
+        self._ventana.agregar(QLabel("Lubricantes y Filtros: Revision filtro de combustible"),"Label",1)
+        self._ventana.agregar(QLabel("Lubricantes y Filtros: Revision aceite diferencial"),"Label",1)
+        self._ventana.agregar(QLabel("Lubricantes y Filtros: Cambio de aceite y filtro"),"Label",1)
     
     def ventana_estandar(self):
         self.ventana_basica()
-        self._ventana.agregar(QLabel("Fluidos del Vehiculo: Liquido de direccion hidraulica y del limpiaparabrisas"),"Label")
-        self._ventana.agregar(QLabel("Fluidos del Vehiculo: Revision liquido de frenos"),"Label")
-        self._ventana.agregar(QLabel("Partes Mecanicas: Bisagras de puertas y engrase retenedor de puertas"),"Label")
-        self._ventana.agregar(QLabel("Partes Mecanicas: Caño de escape"),"Label")
-        self._ventana.agregar(QLabel("Partes Mecanicas: Correa alternador y de Direccion Asistida"),"Label")
-        self._ventana.agregar(QLabel("ABS: Airbag"),"Label")
-        self._ventana.agregar(QLabel("ABS: Inyeccion"),"Label")
-        self._ventana.agregar(QLabel("ABS: Sensores y Actuadores"),"Label")
+        self._ventana.agregar(QLabel("Fluidos del Vehiculo: Liquido de direccion hidraulica y del limpiaparabrisas"),"Label",1)
+        self._ventana.agregar(QLabel("Fluidos del Vehiculo: Revision liquido de frenos"),"Label",1)
+        self._ventana.agregar(QLabel("Partes Mecanicas: Bisagras de puertas y engrase retenedor de puertas"),"Label",1)
+        self._ventana.agregar(QLabel("Partes Mecanicas: Caño de escape"),"Label",1)
+        self._ventana.agregar(QLabel("Partes Mecanicas: Correa alternador y de Direccion Asistida"),"Label",1)
+        self._ventana.agregar(QLabel("ABS: Airbag"),"Label",1)
+        self._ventana.agregar(QLabel("ABS: Inyeccion"),"Label",1)
+        self._ventana.agregar(QLabel("ABS: Sensores y Actuadores"),"Label",1)
     
     def ventana_completa(self):
         self.ventana_estandar()
-        self._ventana.agregar(QLabel("Pruebas Dinamicas: Cinturon de Seguridad (Comprobar Funcionamiento Inercial)"),"Label")
-        self._ventana.agregar(QLabel("ABS: Climatizacion"),"Label")
-        self._ventana.agregar(QLabel("ABS: Historial de fallas"),"Label")
-        self._ventana.agregar(QLabel("ABS: Instrumental"),"Label")
-        self._ventana.agregar(QLabel("Escaneo con computadora: Diagnostico y reparacion de errores"),"Label")
+        self._ventana.agregar(QLabel("Pruebas Dinamicas: Cinturon de Seguridad (Comprobar Funcionamiento Inercial)"),"Label",1)
+        self._ventana.agregar(QLabel("ABS: Climatizacion"),"Label",1)
+        self._ventana.agregar(QLabel("ABS: Historial de fallas"),"Label",1)
+        self._ventana.agregar(QLabel("ABS: Instrumental"),"Label",1)
+        self._ventana.agregar(QLabel("Escaneo con computadora: Diagnostico y reparacion de errores"),"Label",1)
     
     def __asigno_combos (self):
         lista_items = ['Excelente','Intermedio','Defectuoso']
@@ -76,6 +76,17 @@ class ConcreteBuilderVentana (BuilderVentana):
             combo.setObjectName(f"combo{i}")
             combo.addItems(lista_items)
             self._ventana.agregar(combo, "Combo")
+    
+    def armo_layout_con_datos (self, lista):
+        minimo = 1
+        maximo = len(lista) -1
+        cont = 0
+        for i in lista:
+            if cont > minimo and cont<maximo and i != None:
+                self.ventana.agregar(QLabel(f'{i}'),"Label",2)
+            cont += 1
+        self.ventana.armo_impresion()
+        return self.ventana
     
     def armo_layout (self):
         self.__asigno_combos()
@@ -89,14 +100,18 @@ class Ventana (QWidget):
         super().__init__()
         self.__layout_combos = QVBoxLayout()
         self.__layout_etiquetas = QVBoxLayout()
+        self.__layout_informacion = QVBoxLayout()
         self.__contador = 0
     
-    def agregar (self, elemento, tipo):
+    def agregar (self, elemento, tipo, nro):
         if tipo == "Combo":
             self.__layout_combos.addWidget(elemento)
         elif tipo == "Label":
-            self.__layout_etiquetas.addWidget(elemento)
-            self.__contador += 1
+            if nro == 1:
+                self.__layout_etiquetas.addWidget(elemento)
+                self.__contador += 1
+            else:
+                self.__layout_informacion.addWidget(elemento)
     
     @property
     def contador (self):
@@ -106,6 +121,12 @@ class Ventana (QWidget):
         layout = QHBoxLayout()
         layout.addLayout(self.__layout_etiquetas)
         layout.addLayout(self.__layout_combos)
+        self.setLayout(layout)
+    
+    def armo_impresion (self):
+        layout = QHBoxLayout()
+        layout.addLayout(self.__layout_etiquetas)
+        layout.addLayout(self.__layout_informacion)
         self.setLayout(layout)
     
     def listo_hijos (self):
@@ -140,9 +161,18 @@ class Director ():
             self.__builder.ventana_estandar()
         elif cadena == "Completo":
             self.__builder.ventana_completa()
-        return self.builder.armo_layout()
+        return self.__builder.armo_layout()
+    
+    def creo_ventana (self, lista):
+        if lista[1] == "Basico":
+            self.__builder.ventana_basica()
+        elif lista[1] == "Estandar":
+            self.__builder.ventana_estandar()
+        elif lista[1] == "Completo":
+            self.__builder.ventana_completa()
+        return self.__builder.armo_layout_con_datos(lista)
 
-class VentanaBasica:
+class VentanaGeneral:
     
     def __init__(self):
         self._director = Director()
@@ -150,6 +180,10 @@ class VentanaBasica:
     def armo_service (self, cadena):
         self._director.builder = ConcreteBuilderVentana()
         return self._director.preparo_ventana(cadena)
+    
+    def armo_service_con_datos (self, lista):
+        self._director.builder = ConcreteBuilderVentana()
+        return self._director.creo_ventana(lista)
 
 #1. partes de labels,combo
 #2. creo_layout

@@ -1,13 +1,10 @@
-#from Modelo.interfaz_impresion import MainWindow
 from PyQt5.QtWidgets import *
-#from Vista.ventana import VentanaService 
 from views.builder_ventana import *
 from database.auto_dao import AutoDao
 from database.service_dao import ServiceDao
 import sys
 
 app = QApplication([])
-# mw = MainWindow()
 
 class ServiceController(QWidget):
     
@@ -30,9 +27,9 @@ class ServiceController(QWidget):
         self.etiqueta1.setMaximumSize(400,100)
         self.line.textChanged.connect(self.__busco_auto)
         
-        self.__ventana_basica = VentanaBasica().armo_service("Basico")
-        self.__ventana_estandar = VentanaBasica().armo_service("Estandar")
-        self.__ventana_completa = VentanaBasica().armo_service("Completo")
+        self.__ventana_basica = VentanaGeneral().armo_service("Basico")
+        self.__ventana_estandar = VentanaGeneral().armo_service("Estandar")
+        self.__ventana_completa = VentanaGeneral().armo_service("Completo")
 
         self.__btn = QPushButton("Guardar")
 
@@ -100,7 +97,6 @@ class ServiceController(QWidget):
         self.etiqueta1.setFixedSize(500,15)
         self.etiqueta1.setMaximumSize(500,15)
         self.etiqueta1.setMinimumSize(500,15)
-        self.etiqueta1.setStyleSheet("background-color: cyan")
 
 # class Service():
 #     def __init__(self,patente):

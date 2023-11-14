@@ -7,11 +7,8 @@ class ServiceDao:
         self._conexion = psycopg2.connect(
             database = "[autosoft]",
             user= "postgres",
-            #database = "tp_final_poo",
-            #password = "bd2372",
             password = "teclas",
             host="tpphost.duckdns.org",
-            
             port = "5432")
         self._cursor = self._conexion.cursor()
 
@@ -24,6 +21,10 @@ class ServiceDao:
         self._cursor.execute(f"SELECT * FROM service where patente='{patente}'")
         return self._cursor.fetchall()
 
+    def get_by_id (self, id):
+        self._cursor.execute(f"SELECT * FROM service where nro_service='{id.text()}' ")
+        return self._cursor.fetchone()
+
     def commit (self, datos, patente):
         consulta = ""
         j = 0
@@ -34,12 +35,11 @@ class ServiceDao:
             else:
                 consulta += f",'{i}'"
         consulta += f",'{patente}'"
-        #print(consulta)
         if datos[0] == "Basico":
             campos = "tipo_service,luces_y_baul,amortiguadores,presion_neumaticos,tuerca_neumaticos,bateria,filtro_combustible,aceite_diferencial,aceite_y_filtro,patente"
         elif datos[0] == "Estandar":
             campos = "tipo_service,luces_y_baul,amortiguadores,presion_neumaticos,tuerca_neumaticos,bateria,filtro_combustible,aceite_diferencial,aceite_y_filtro,liquido,revision_liquido,bisagras_engrase,caño_de_escape,correa_direccion,airbag,inyeccion,sensores_actuadores,patente"
-        ##16 en adelante no utilizar
+        
         elif datos[0] == "Completo":
             campos = "tipo_service,luces_y_baul,amortiguadores,presion_neumaticos,tuerca_neumaticos,bateria,filtro_combustible,aceite_diferencial,aceite_y_filtro,liquido,revision_liquido,bisagras_engrase,caño_de_escape,correa_direccion,airbag,inyeccion,sensores_actuadores,cinturon_seguridad,climatizacion,historial_fallas,instrumental,escaneo_computadora,patente"
         print(campos)
