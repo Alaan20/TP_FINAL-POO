@@ -58,7 +58,8 @@ class CreacionServiceController(QWidget):
         opcion = self.__combo_box.currentText()
         l = []
         l = almacen_ventana.listo_hijos(opcion)
-        
+        print("guardo_datos")
+        print(l)
         if self.__validacion == True:
             service_db.commit(l,f"{self.line.text()}")
             print(l)

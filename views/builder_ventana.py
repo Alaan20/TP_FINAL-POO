@@ -201,6 +201,7 @@ class CreadorVentanaGenerico (ABC):
     def listo_hijos (self, lista):
         lista = self._plantilla.listo_hijos()
         lista.insert(0,f'{self._nombre}')
+        return lista
 
 
 class VentanaBasica(CreadorVentanaGenerico):
@@ -277,7 +278,8 @@ class AlmacenVentana:
         l = []
         for elemento in [self.__ventana_basica, self.__ventana_estandar, self.__ventana_completa]:
             if elemento.nombre == nombre:
-                elemento.listo_hijos(l)
+                l = elemento.listo_hijos(l)
+                print(l)
                 return l
     
     def armo_ventana_con_datos (self, lista):
