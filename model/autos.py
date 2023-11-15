@@ -46,7 +46,6 @@ class AutosController(Ui):
             self._lista_auto.append(self._main.lineEdit_58.text()) # Kilometros
             self._lista_auto.append(self._main.comboBox_2.currentText()) # Tipo de combustibl
             self._lista_auto.append(self._main.textEdit_3.toPlainText())
-            self.guardar_cambios()
     
     def guardar_cambios(self):
         if self._editar == True:
