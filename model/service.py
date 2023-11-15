@@ -1,7 +1,6 @@
 from  PyQt5.QtWidgets import *
 from database.database import ServiceDb 
 from controllers.controller_2 import CreacionServiceController, ServiceImpreso
-from views.builder_ventana import VentanaGeneral
 
 class ServiceController():
     def __init__(self, main):
@@ -13,6 +12,7 @@ class ServiceController():
         self._service_impresion = ServiceImpreso
     
     def mostrar_service(self):
+        self._main.stackedWidget.setCurrentIndex(8)
         
         self._patente = self._main.table_auto.item(self._main.table_auto.currentRow(),0)
         if self._patente != None:
