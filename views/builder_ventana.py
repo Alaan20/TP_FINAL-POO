@@ -32,7 +32,7 @@ class ConcreteBuilderVentana (BuilderVentana):
         self.reset()
     
     def reset (self):
-        self._ventana = Ventana()
+        self._ventana = VentanaCreadora()
     
     @property
     def ventana (self):
@@ -48,6 +48,7 @@ class ConcreteBuilderVentana (BuilderVentana):
         self._ventana.agregar(QLabel("Lubricantes y Filtros: Revision filtro de combustible"),"Label",1)
         self._ventana.agregar(QLabel("Lubricantes y Filtros: Revision aceite diferencial"),"Label",1)
         self._ventana.agregar(QLabel("Lubricantes y Filtros: Cambio de aceite y filtro"),"Label",1)
+    #    self._ventana.nombre = "Basico"
     
     def ventana_estandar(self):
         self.ventana_basica()
@@ -59,6 +60,7 @@ class ConcreteBuilderVentana (BuilderVentana):
         self._ventana.agregar(QLabel("ABS: Airbag"),"Label",1)
         self._ventana.agregar(QLabel("ABS: Inyeccion"),"Label",1)
         self._ventana.agregar(QLabel("ABS: Sensores y Actuadores"),"Label",1)
+    #    self._ventana.nombre = "Estandar"
     
     def ventana_completa(self):
         self.ventana_estandar()
@@ -67,6 +69,7 @@ class ConcreteBuilderVentana (BuilderVentana):
         self._ventana.agregar(QLabel("ABS: Historial de fallas"),"Label",1)
         self._ventana.agregar(QLabel("ABS: Instrumental"),"Label",1)
         self._ventana.agregar(QLabel("Escaneo con computadora: Diagnostico y reparacion de errores"),"Label",1)
+    #    self._ventana.nombre = "Completo"
     
     def __asigno_combos (self):
         lista_items = ['Excelente','Intermedio','Defectuoso']
@@ -75,7 +78,7 @@ class ConcreteBuilderVentana (BuilderVentana):
             combo = QComboBox()
             combo.setObjectName(f"combo{i}")
             combo.addItems(lista_items)
-            self._ventana.agregar(combo, "Combo")
+            self._ventana.agregar(combo, "Combo",1)
     
     def armo_layout_con_datos (self, lista):
         minimo = 1
@@ -94,7 +97,7 @@ class ConcreteBuilderVentana (BuilderVentana):
         return self.ventana
 
 
-class Ventana (QWidget):
+class VentanaCreadora (QWidget):
     
     def __init__(self):
         super().__init__()
@@ -134,7 +137,7 @@ class Ventana (QWidget):
         try:
             for i in range(0,23):
                 combo = self.findChild(QComboBox,f"combo{i}")
-                print(i)
+                
                 if combo.currentText() is not None:
                     l.append(combo.currentText())
         except AttributeError:
@@ -172,19 +175,110 @@ class Director ():
             self.__builder.ventana_completa()
         return self.__builder.armo_layout_con_datos(lista)
 
-class VentanaGeneral:
+class CreadorVentanaGenerico (ABC):
     
-    def __init__(self):
+    def __init__(self, nombre):
         self._director = Director()
+        self._nombre = nombre
+        self._plantilla = None
     
-    def armo_service (self, cadena):
+    @property
+    def nombre (self):
+        return self._nombre
+    
+    @property
+    def plantilla (self):
+        return self._plantilla
+    
+    def armo_service (self):
         self._director.builder = ConcreteBuilderVentana()
-        return self._director.preparo_ventana(cadena)
+        self._plantilla = self._director.preparo_ventana(self._nombre)
     
-    def armo_service_con_datos (self, lista):
+    def armo_ventana_con_datos (self, lista):
         self._director.builder = ConcreteBuilderVentana()
         return self._director.creo_ventana(lista)
+    
+    def listo_hijos (self, lista):
+        lista = self._plantilla.listo_hijos()
+        lista.insert(0,f'{self._nombre}')
 
-#1. partes de labels,combo
-#2. creo_layout
-#3. devuelvo_layout
+
+class VentanaBasica(CreadorVentanaGenerico):
+    
+    def __init__(self):
+        super().__init__("Basico")
+        self.armo_service()
+    
+    def armo_service(self):
+        super().armo_service()
+
+    def listo_hijos(self, lista):
+        return super().listo_hijos(lista)
+
+
+class VentanaEstandar (CreadorVentanaGenerico):
+    
+    def __init__(self):
+        super().__init__("Estandar")
+        self.armo_service()
+    
+    def armo_service(self):
+        super().armo_service()
+
+    def listo_hijos(self, lista):
+        return super().listo_hijos(lista)
+
+
+class VentanaCompleta (CreadorVentanaGenerico):
+    
+    def __init__(self):
+        super().__init__("Completo")
+        self.armo_service()
+
+    def armo_service(self):
+        super().armo_service()
+    
+    def listo_hijos(self, lista):
+        return super().listo_hijos(lista)
+
+class AlmacenVentana:
+    
+    def __init__(self):
+        self.__creador = CreadorVentanaGenerico('')
+        self.__ventana_basica = VentanaBasica()
+        self.__ventana_estandar = VentanaEstandar()
+        self.__ventana_completa = VentanaCompleta()
+    
+    @property
+    def basica (self):
+        return self.__ventana_basica
+    
+    @basica.setter
+    def basica (self, ventana):
+        self.__ventana_basica = ventana
+    
+    @property
+    def estandar (self):
+        return self.__ventana_estandar
+    
+    @estandar.setter
+    def estandar (self, ventana):
+        self.__ventana_estandar = ventana
+
+    @property
+    def completa (self):
+        return self.__ventana_completa
+    
+    @completa.setter
+    def completa (self, ventana):
+        self.__ventana_completa = ventana
+    
+    def listo_hijos (self, nombre):
+        l = []
+        for elemento in [self.__ventana_basica, self.__ventana_estandar, self.__ventana_completa]:
+            if elemento.nombre == nombre:
+                elemento.listo_hijos(l)
+                return l
+    
+    def armo_ventana_con_datos (self, lista):
+        return self.__creador.armo_ventana_con_datos(lista)

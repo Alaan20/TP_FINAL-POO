@@ -1,12 +1,12 @@
 from PyQt5.QtWidgets import *
-from views.builder_ventana import *
-#from database.auto_dao import AutoDao
+from views.builder_ventana import AlmacenVentana
 from database.database import ServiceDb, AutosDb
 import sys
 
 app = QApplication([])
 
 service_db = ServiceDb()
+almacen_ventana = AlmacenVentana()
 
 class CreacionServiceController(QWidget):
     
@@ -26,19 +26,18 @@ class CreacionServiceController(QWidget):
         self.line.setText(patente)
         self.etiqueta1.setMaximumSize(400,100)
         self.line.textChanged.connect(self.__busco_auto)
-        self.__ventana_basica = VentanaGeneral().armo_service("Basico")
-        self.__ventana_estandar = VentanaGeneral().armo_service("Estandar")
-        self.__ventana_completa = VentanaGeneral().armo_service("Completo")
+        self.__ventana_basica = almacen_ventana.basica
+        self.__ventana_estandar = almacen_ventana.estandar
+        self.__ventana_completa = almacen_ventana.completa
         self.__btn = QPushButton("Guardar")
         layout.addWidget(self.__combo_box)
         layout.addWidget(self.line)
         layout.addWidget(self.etiqueta1)
-        layout.addWidget(self.__ventana_basica)
-        layout.addWidget(self.__ventana_estandar)
-        layout.addWidget(self.__ventana_completa)
+        layout.addWidget(self.__ventana_basica.plantilla)
+        layout.addWidget(self.__ventana_estandar.plantilla)
+        layout.addWidget(self.__ventana_completa.plantilla)
         layout.addWidget(self.__btn)
         self.__btn.pressed.connect(self.__guardo_datos)
-        
         self.setLayout(layout)
         self.__reinicio_ventana()
         self.__actualizar_ventana()
@@ -57,15 +56,7 @@ class CreacionServiceController(QWidget):
     def __guardo_datos (self):
         opcion = self.__combo_box.currentText()
         l = []
-        if opcion == "Basico":
-            l = self.__ventana_basica.listo_hijos()
-            l.insert(0,"Basico")
-        elif opcion == "Estandar":
-            l = self.__ventana_estandar.listo_hijos()
-            l.insert(0,"Estandar")
-        else:
-            l = self.__ventana_completa.listo_hijos()
-            l.insert(0,"Completo")
+        l = almacen_ventana.listo_hijos(opcion)
         
         if self.__validacion == True:
             service_db.commit(l,f"{self.line.text()}")
@@ -73,20 +64,18 @@ class CreacionServiceController(QWidget):
 
     def __actualizar_ventana (self):
         opcion = self.__combo_box.currentText()
-        if opcion == "Basico":
-            self.__mostrar_ventana(self.__ventana_basica)
-        elif opcion == "Estandar":
-            self.__mostrar_ventana(self.__ventana_estandar)
-        elif opcion == "Completo":
-            self.__mostrar_ventana(self.__ventana_completa)
+        for item in [self.__ventana_basica, self.__ventana_estandar, self.__ventana_completa]:
+            if opcion == item.nombre:
+                self.__mostrar_ventana(item)
+                break
 
     def __reinicio_ventana (self):
         for v in [self.__ventana_basica, self.__ventana_estandar,self.__ventana_completa]:
-            v.hide()
+            v.plantilla.hide()
     
     def __mostrar_ventana (self, ventana):
         self.__reinicio_ventana()
-        ventana.show()
+        ventana.plantilla.show()
         self.resize(0,0)
         self.setMinimumSize(self.width(),self.height())
         self.setMaximumSize(self.width(),self.height())
@@ -104,7 +93,7 @@ class ServiceImpreso (QWidget):
     def imprimo_service (self, id):
         layout2 = QVBoxLayout()
         lista_informacion = list(service_db.get_by_id(id))
-        self.ventana_impresion = VentanaGeneral().armo_service_con_datos(lista_informacion)
+        self.ventana_impresion = almacen_ventana.armo_ventana_con_datos(lista_informacion)
         layout2.addWidget(self.ventana_impresion)
         self.__reinicio_ventana_impresion()  ##oculta todas las ventanas (nuevas y existentes)
         self.ventana_impresion.show() ##es para mostrar la ventana nueva
