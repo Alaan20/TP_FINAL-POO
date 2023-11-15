@@ -1,10 +1,10 @@
 from database.database import PersonaDb
-
-class Agregar():
+from model.ui import Ui
+class Agregar(Ui):
     def __init__(self,main) -> None:
+        super().__init__()
         self._main=main
         self._lista=[]
-        self._bd=PersonaDb()
         
     def validar_datos(self,variable,lista:list):
         if not variable:
@@ -38,7 +38,7 @@ class Agregar():
             for i in range(len(self._lista)):
                 if not self._lista[i]:
                     self._lista[i]+='null'
-            self._bd.crear(self._lista,rol)
+            self._db.crear(self._lista,rol)
                 
             self._main.error_2.setStyleSheet("color:blue")
             self._main.error_2.setText("usuario agregado exitosamente!")

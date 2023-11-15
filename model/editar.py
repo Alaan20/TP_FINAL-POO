@@ -1,13 +1,10 @@
 from database.database import PersonaDb
+from model.ui import Ui
 
-class EditarController():
-    
+class EditarController(Ui):
     def __init__(self,main):
         self._main = main
-        self._db = PersonaDb()
-        self._id = None
-        self._selected_rows = []
-    
+
     def editar_admin(self):
         if self._main.user1.text() and self._main.password1.text():
             self._db.actualizar_admin(self._main.user1.text(),self._main.password1.text())
@@ -21,7 +18,6 @@ class EditarController():
         self._selected_rows = self._main.table_user.selectedItems()
         self._id = self._main.table_user.item(self._main.table_user.currentRow(),0)
         if self._selected_rows:
-            # Cambiar a la nueva página
             self._main.stackedWidget.setCurrentIndex(6)
             self.llenar_texto()
             self._main.label_61.setText("Editar Usuario")
@@ -30,19 +26,9 @@ class EditarController():
         self._selected_rows = self._main.Tableuser_2.selectedItems()
         self._id = self._main.Tableuser_2.item(self._main.Tableuser_2.currentRow(),0)
         if self._selected_rows:
-            # Cambiar a la nueva página
             self._main.stackedWidget.setCurrentIndex(6)
             self.llenar_texto()
             self._main.label_61.setText("Editar Mecanico")
-    
-    def llenar_texto(self):
-            self._main.lineEdit_50.setText(self._selected_rows[0].text())
-            self._main.lineEdit_51.setText("********")
-            self._main.lineEdit_52.setText(self._selected_rows[1].text())
-            self._main.lineEdit_53.setText(self._selected_rows[2].text())
-            self._main.lineEdit_54.setText(self._selected_rows[3].text())
-            self._main.lineEdit_55.setText(self._selected_rows[4].text())
-            self._main.lineEdit_56.setText(self._selected_rows[5].text())
                 
     def guardar_cambios(self):
         try:

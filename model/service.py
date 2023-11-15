@@ -13,12 +13,13 @@ class ServiceController():
         self._service_impresion = ServiceImpreso
     
     def mostrar_service(self):
-        self._main.stackedWidget.setCurrentIndex(8)
         
         self._patente = self._main.table_auto.item(self._main.table_auto.currentRow(),0)
-        self._lista_service = self._db3.leer_service(self._patente.text())
-        if self._db3.leer_service(self._patente.text()) != []:
-            self.llenar_tabla()
+        if self._patente != None:
+            self._main.stackedWidget.setCurrentIndex(8)
+            if self._db3.leer_service(self._patente.text()) != []:
+                self._lista_service = self._db3.leer_service(self._patente.text())
+                self.llenar_tabla()
 
     def llenar_tabla(self):       
         self._main.table_informes.setSelectionBehavior(QAbstractItemView.SelectRows)

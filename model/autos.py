@@ -1,13 +1,9 @@
-from database.database import AutosDb,PersonaDb
+from model.ui import Ui
 
-class AutosController():
+class AutosController(Ui):
     def __init__(self,main):
         self._main=main
-        self._bd1=PersonaDb()
-        self._bd2=AutosDb()
-        self._selected_rows=[]
         self._lista_auto = []
-        self._id_usuario= None
         self._editar = bool
     
     def validar_datos(self):
@@ -25,8 +21,8 @@ class AutosController():
         self.guardar_cambios()
     
     def borrar_autos(self):
-        self._id_usuario= self._main.table_auto.item(self._main.table_auto.currentRow(),0)
-        self._bd2.borrar_auto(self._id_usuario.text())
+        self._id= self._main.table_auto.item(self._main.table_auto.currentRow(),0)
+        self._db2.borrar_auto(self._id.text())
         self._main.table_auto.setRowHidden(self._main.table_auto.currentRow(), True)
     
     def editar_autos(self):
@@ -48,9 +44,9 @@ class AutosController():
     def guardar_lista(self):
 
             self._lista_auto=[]
-            self._id_usuario= self._main.table_user.item(self._main.table_user.currentRow(),0)
+            self._id = self._main.table_user.item(self._main.table_user.currentRow(),0)
             self._lista_auto.append(self._main.lineEdit_57.text()) #patente
-            self._lista_auto.append(self._id_usuario.text()) # id_auto
+            self._lista_auto.append(self._id.text()) # id_auto
             self._lista_auto.append(self._main.comboBox.currentText()) # Marca
             self._lista_auto.append(self._main.lineEdit_61.text()) # Modelo
             self._lista_auto.append(self._main.lineEdit_59.text()) # Año
@@ -68,11 +64,3 @@ class AutosController():
             self._bd2.agregar_autos(self._lista_auto)
             self._main.error_6.setStyleSheet("color:blue")
             self._main.error_6.setText("auto cargado correctamente")
-    
-    def limpiar_texto(self):
-        self._main.lineEdit_57.setReadOnly(False)
-        self._main.lineEdit_57.setText("")
-        self._main.lineEdit_61.setText("")
-        self._main.lineEdit_59.setText("")
-        self._main.lineEdit_58.setText("")
-        self._main.textEdit_3.setPlainText("")
