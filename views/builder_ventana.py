@@ -48,7 +48,6 @@ class ConcreteBuilderVentana (BuilderVentana):
         self._ventana.agregar(QLabel("Lubricantes y Filtros: Revision filtro de combustible"),"Label",1)
         self._ventana.agregar(QLabel("Lubricantes y Filtros: Revision aceite diferencial"),"Label",1)
         self._ventana.agregar(QLabel("Lubricantes y Filtros: Cambio de aceite y filtro"),"Label",1)
-    #    self._ventana.nombre = "Basico"
     
     def ventana_estandar(self):
         self.ventana_basica()
@@ -60,7 +59,6 @@ class ConcreteBuilderVentana (BuilderVentana):
         self._ventana.agregar(QLabel("ABS: Airbag"),"Label",1)
         self._ventana.agregar(QLabel("ABS: Inyeccion"),"Label",1)
         self._ventana.agregar(QLabel("ABS: Sensores y Actuadores"),"Label",1)
-    #    self._ventana.nombre = "Estandar"
     
     def ventana_completa(self):
         self.ventana_estandar()
@@ -69,7 +67,6 @@ class ConcreteBuilderVentana (BuilderVentana):
         self._ventana.agregar(QLabel("ABS: Historial de fallas"),"Label",1)
         self._ventana.agregar(QLabel("ABS: Instrumental"),"Label",1)
         self._ventana.agregar(QLabel("Escaneo con computadora: Diagnostico y reparacion de errores"),"Label",1)
-    #    self._ventana.nombre = "Completo"
     
     def __asigno_combos (self):
         lista_items = ['Excelente','Intermedio','Defectuoso']
@@ -279,7 +276,6 @@ class AlmacenVentana:
         for elemento in [self.__ventana_basica, self.__ventana_estandar, self.__ventana_completa]:
             if elemento.nombre == nombre:
                 l = elemento.listo_hijos(l)
-                print(l)
                 return l
     
     def armo_ventana_con_datos (self, lista):

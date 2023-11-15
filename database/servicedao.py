@@ -16,8 +16,7 @@ class ServiceDb:
     def commit (self, datos, patente):
         consulta = ""
         j = 0
-        #print(datos)
-        #print(f"patente de commit {patente}")
+        
         for i in datos:
             if j == 0:
                 consulta += f"'{i}'"
@@ -25,7 +24,6 @@ class ServiceDb:
             else:
                 consulta += f",'{i}'"
         consulta += f",'{patente}'"
-        print(consulta)
         if datos[0] == "Basico":
             campos = "tipo_service,luces_y_baul,amortiguadores,presion_neumaticos,tuerca_neumaticos,bateria,filtro_combustible,aceite_diferencial,aceite_y_filtro,patente"
         elif datos[0] == "Estandar":
