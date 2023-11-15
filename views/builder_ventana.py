@@ -74,7 +74,7 @@ class ConcreteBuilderVentana (BuilderVentana):
     def __asigno_combos (self):
         lista_items = ['Excelente','Intermedio','Defectuoso']
         numero = self._ventana.contador
-        for i in range(0,numero):
+        for i in range(0,numero+1):
             combo = QComboBox()
             combo.setObjectName(f"combo{i}")
             combo.addItems(lista_items)

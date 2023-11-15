@@ -104,7 +104,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>E:/TP_FINAL-POO/icons/users_normal_hover.png</normaloff>E:/TP_FINAL-POO/icons/users_normal_hover.png</iconset>
+              <normaloff>../icons/users_normal_hover.png</normaloff>../icons/users_normal_hover.png</iconset>
             </property>
            </widget>
           </item>
@@ -115,7 +115,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>E:/TP_FINAL-POO/icons/license_normal_hover.png</normaloff>E:/TP_FINAL-POO/icons/license_normal_hover.png</iconset>
+              <normaloff>../icons/license_normal_hover.png</normaloff>../icons/license_normal_hover.png</iconset>
             </property>
            </widget>
           </item>
@@ -126,7 +126,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>E:/TP_FINAL-POO/icons/admin_normal_hover.png</normaloff>E:/TP_FINAL-POO/icons/admin_normal_hover.png</iconset>
+              <normaloff>../icons/admin_normal_hover.png</normaloff>../icons/admin_normal_hover.png</iconset>
             </property>
            </widget>
           </item>
@@ -137,7 +137,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>E:/TP_FINAL-POO/icons/password_normal_hover.png</normaloff>E:/TP_FINAL-POO/icons/password_normal_hover.png</iconset>
+              <normaloff>../icons/password_normal_hover.png</normaloff>../icons/password_normal_hover.png</iconset>
             </property>
            </widget>
           </item>
@@ -268,7 +268,7 @@
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap>E:/TP_FINAL-POO/icons/mecanic.ico</pixmap>
+                  <pixmap>../icons/mecanic.ico</pixmap>
                  </property>
                 </widget>
                </item>
@@ -304,7 +304,7 @@
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>E:/TP_FINAL-POO/icons/reload_normal_hover.png</normaloff>E:/TP_FINAL-POO/icons/reload_normal_hover.png</iconset>
+                   <normaloff>../icons/reload_normal_hover.png</normaloff>../icons/reload_normal_hover.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -328,7 +328,7 @@
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>E:/TP_FINAL-POO/icons/edit_small_normal_hover.png</normaloff>E:/TP_FINAL-POO/icons/edit_small_normal_hover.png</iconset>
+                   <normaloff>../icons/edit_small_normal_hover.png</normaloff>../icons/edit_small_normal_hover.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -352,7 +352,7 @@
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>E:/TP_FINAL-POO/icons/cross_normal_hover.png</normaloff>E:/TP_FINAL-POO/icons/cross_normal_hover.png</iconset>
+                   <normaloff>../icons/cross_normal_hover.png</normaloff>../icons/cross_normal_hover.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -398,11 +398,11 @@
               <attribute name="horizontalHeaderCascadingSectionResizes">
                <bool>false</bool>
               </attribute>
-              <attribute name="horizontalHeaderMinimumSectionSize">
-               <number>40</number>
-              </attribute>
               <attribute name="horizontalHeaderHighlightSections">
                <bool>true</bool>
+              </attribute>
+              <attribute name="horizontalHeaderMinimumSectionSize">
+               <number>40</number>
               </attribute>
               <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
                <bool>false</bool>
@@ -416,10 +416,10 @@
               <attribute name="verticalHeaderCascadingSectionResizes">
                <bool>false</bool>
               </attribute>
-              <attribute name="verticalHeaderMinimumSectionSize">
+              <attribute name="verticalHeaderDefaultSectionSize">
                <number>40</number>
               </attribute>
-              <attribute name="verticalHeaderDefaultSectionSize">
+              <attribute name="verticalHeaderMinimumSectionSize">
                <number>40</number>
               </attribute>
               <attribute name="verticalHeaderShowSortIndicator" stdset="0">
@@ -710,7 +710,7 @@
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap>E:/TP_FINAL-POO/icons/mecanic.ico</pixmap>
+                  <pixmap>../icons/mecanic.ico</pixmap>
                  </property>
                 </widget>
                </item>
@@ -743,11 +743,11 @@
               <attribute name="horizontalHeaderCascadingSectionResizes">
                <bool>false</bool>
               </attribute>
-              <attribute name="horizontalHeaderMinimumSectionSize">
-               <number>40</number>
-              </attribute>
               <attribute name="horizontalHeaderHighlightSections">
                <bool>true</bool>
+              </attribute>
+              <attribute name="horizontalHeaderMinimumSectionSize">
+               <number>40</number>
               </attribute>
               <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
                <bool>false</bool>
@@ -761,10 +761,10 @@
               <attribute name="verticalHeaderCascadingSectionResizes">
                <bool>false</bool>
               </attribute>
-              <attribute name="verticalHeaderMinimumSectionSize">
+              <attribute name="verticalHeaderDefaultSectionSize">
                <number>40</number>
               </attribute>
-              <attribute name="verticalHeaderDefaultSectionSize">
+              <attribute name="verticalHeaderMinimumSectionSize">
                <number>40</number>
               </attribute>
               <attribute name="verticalHeaderShowSortIndicator" stdset="0">
@@ -1011,7 +1011,7 @@
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>E:/TP_FINAL-POO/icons/license_options_normal_hover.png</normaloff>E:/TP_FINAL-POO/icons/license_options_normal_hover.png</iconset>
+                   <normaloff>../icons/license_options_normal_hover.png</normaloff>../icons/license_options_normal_hover.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -1035,7 +1035,7 @@
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>E:/TP_FINAL-POO/icons/reload_normal_hover.png</normaloff>E:/TP_FINAL-POO/icons/reload_normal_hover.png</iconset>
+                   <normaloff>../icons/reload_normal_hover.png</normaloff>../icons/reload_normal_hover.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -1059,7 +1059,7 @@
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>E:/TP_FINAL-POO/icons/edit_small_normal_hover.png</normaloff>E:/TP_FINAL-POO/icons/edit_small_normal_hover.png</iconset>
+                   <normaloff>../icons/edit_small_normal_hover.png</normaloff>../icons/edit_small_normal_hover.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -1083,7 +1083,7 @@
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>E:/TP_FINAL-POO/icons/cross_normal_hover.png</normaloff>E:/TP_FINAL-POO/icons/cross_normal_hover.png</iconset>
+                   <normaloff>../icons/cross_normal_hover.png</normaloff>../icons/cross_normal_hover.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -1256,7 +1256,7 @@
                      <string/>
                     </property>
                     <property name="pixmap">
-                     <pixmap>E:/TP_FINAL-POO/icons/mecanic.ico</pixmap>
+                     <pixmap>../icons/mecanic.ico</pixmap>
                     </property>
                    </widget>
                   </item>
@@ -1512,7 +1512,7 @@
                           <string/>
                          </property>
                          <property name="pixmap">
-                          <pixmap>E:/TP_FINAL-POO/icons/contact-book.png</pixmap>
+                          <pixmap>../icons/contact-book.png</pixmap>
                          </property>
                         </widget>
                        </widget>
@@ -1671,7 +1671,7 @@
                      <string/>
                     </property>
                     <property name="pixmap">
-                     <pixmap>E:/TP_FINAL-POO/icons/mecanic.ico</pixmap>
+                     <pixmap>../icons/mecanic.ico</pixmap>
                     </property>
                    </widget>
                   </item>
@@ -1843,7 +1843,7 @@
                          <bool>true</bool>
                         </property>
                         <property name="inputMethodHints">
-                         <set>Qt::ImhNone</set>
+                         <set>Qt::ImhHiddenText</set>
                         </property>
                        </widget>
                       </item>
@@ -1956,7 +1956,7 @@
                           <string/>
                          </property>
                          <property name="pixmap">
-                          <pixmap>E:/TP_FINAL-POO/icons/contact-book.png</pixmap>
+                          <pixmap>../icons/contact-book.png</pixmap>
                          </property>
                         </widget>
                        </widget>
@@ -2191,7 +2191,7 @@
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap>E:/TP_FINAL-POO/icons/login.svg</pixmap>
+                  <pixmap>../icons/login.svg</pixmap>
                  </property>
                  <property name="scaledContents">
                   <bool>true</bool>
@@ -2245,7 +2245,7 @@
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>E:/TP_FINAL-POO/icons/license_options_normal_hover.png</normaloff>E:/TP_FINAL-POO/icons/license_options_normal_hover.png</iconset>
+                   <normaloff>../icons/license_options_normal_hover.png</normaloff>../icons/license_options_normal_hover.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -2269,7 +2269,7 @@
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>E:/TP_FINAL-POO/icons/tick_normal_hover.png</normaloff>E:/TP_FINAL-POO/icons/tick_normal_hover.png</iconset>
+                   <normaloff>../icons/tick_normal_hover.png</normaloff>../icons/tick_normal_hover.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -2293,7 +2293,7 @@
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>E:/TP_FINAL-POO/icons/edit_small_normal_hover.png</normaloff>E:/TP_FINAL-POO/icons/edit_small_normal_hover.png</iconset>
+                   <normaloff>../icons/edit_small_normal_hover.png</normaloff>../icons/edit_small_normal_hover.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -2317,7 +2317,7 @@
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>E:/TP_FINAL-POO/icons/cross_normal_hover.png</normaloff>E:/TP_FINAL-POO/icons/cross_normal_hover.png</iconset>
+                   <normaloff>../icons/cross_normal_hover.png</normaloff>../icons/cross_normal_hover.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -2406,7 +2406,7 @@
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap>E:/TP_FINAL-POO/icons/mecanic.ico</pixmap>
+                  <pixmap>../icons/mecanic.ico</pixmap>
                  </property>
                 </widget>
                </item>
@@ -2439,11 +2439,11 @@
               <attribute name="horizontalHeaderCascadingSectionResizes">
                <bool>false</bool>
               </attribute>
-              <attribute name="horizontalHeaderMinimumSectionSize">
-               <number>40</number>
-              </attribute>
               <attribute name="horizontalHeaderHighlightSections">
                <bool>true</bool>
+              </attribute>
+              <attribute name="horizontalHeaderMinimumSectionSize">
+               <number>40</number>
               </attribute>
               <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
                <bool>false</bool>
@@ -2457,10 +2457,10 @@
               <attribute name="verticalHeaderCascadingSectionResizes">
                <bool>false</bool>
               </attribute>
-              <attribute name="verticalHeaderMinimumSectionSize">
+              <attribute name="verticalHeaderDefaultSectionSize">
                <number>40</number>
               </attribute>
-              <attribute name="verticalHeaderDefaultSectionSize">
+              <attribute name="verticalHeaderMinimumSectionSize">
                <number>40</number>
               </attribute>
               <attribute name="verticalHeaderShowSortIndicator" stdset="0">
@@ -2787,7 +2787,7 @@
                      <string/>
                     </property>
                     <property name="pixmap">
-                     <pixmap>E:/TP_FINAL-POO/icons/mecanic.ico</pixmap>
+                     <pixmap>../icons/mecanic.ico</pixmap>
                     </property>
                    </widget>
                   </item>
@@ -3051,7 +3051,7 @@
                           <string/>
                          </property>
                          <property name="pixmap">
-                          <pixmap>E:/TP_FINAL-POO/icons/contact-book.png</pixmap>
+                          <pixmap>../icons/contact-book.png</pixmap>
                          </property>
                         </widget>
                        </widget>
@@ -3210,7 +3210,7 @@
                      <string/>
                     </property>
                     <property name="pixmap">
-                     <pixmap>E:/TP_FINAL-POO/icons/mecanic.ico</pixmap>
+                     <pixmap>../icons/mecanic.ico</pixmap>
                     </property>
                    </widget>
                   </item>
@@ -3681,7 +3681,7 @@
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap>E:/TP_FINAL-POO/icons/mecanic.ico</pixmap>
+                  <pixmap>../icons/mecanic.ico</pixmap>
                  </property>
                 </widget>
                </item>
@@ -3717,7 +3717,7 @@
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>E:/TP_FINAL-POO/icons/back_normal_hover.png</normaloff>E:/TP_FINAL-POO/icons/back_normal_hover.png</iconset>
+                   <normaloff>../icons/back_normal_hover.png</normaloff>../icons/back_normal_hover.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -3741,7 +3741,7 @@
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>E:/TP_FINAL-POO/icons/tick_normal_hover.png</normaloff>E:/TP_FINAL-POO/icons/tick_normal_hover.png</iconset>
+                   <normaloff>../icons/tick_normal_hover.png</normaloff>../icons/tick_normal_hover.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -3765,7 +3765,7 @@
                  </property>
                  <property name="icon">
                   <iconset>
-                   <normaloff>E:/TP_FINAL-POO/icons/cross_normal_hover.png</normaloff>E:/TP_FINAL-POO/icons/cross_normal_hover.png</iconset>
+                   <normaloff>../icons/cross_normal_hover.png</normaloff>../icons/cross_normal_hover.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -3811,11 +3811,11 @@
               <attribute name="horizontalHeaderCascadingSectionResizes">
                <bool>false</bool>
               </attribute>
-              <attribute name="horizontalHeaderMinimumSectionSize">
-               <number>40</number>
-              </attribute>
               <attribute name="horizontalHeaderHighlightSections">
                <bool>true</bool>
+              </attribute>
+              <attribute name="horizontalHeaderMinimumSectionSize">
+               <number>40</number>
               </attribute>
               <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
                <bool>false</bool>
@@ -3829,10 +3829,10 @@
               <attribute name="verticalHeaderCascadingSectionResizes">
                <bool>false</bool>
               </attribute>
-              <attribute name="verticalHeaderMinimumSectionSize">
+              <attribute name="verticalHeaderDefaultSectionSize">
                <number>40</number>
               </attribute>
-              <attribute name="verticalHeaderDefaultSectionSize">
+              <attribute name="verticalHeaderMinimumSectionSize">
                <number>40</number>
               </attribute>
               <attribute name="verticalHeaderShowSortIndicator" stdset="0">

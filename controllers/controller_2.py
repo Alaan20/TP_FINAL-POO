@@ -14,7 +14,7 @@ class CreacionServiceController(QWidget):
     def __init__(self, patente):
         super().__init__()
         self.gui_service(patente)
-        self.auto_db = AutosDb()
+        self.__auto_db = AutosDb()
         self.__validacion = bool
     
     def gui_service (self,patente):
@@ -24,9 +24,10 @@ class CreacionServiceController(QWidget):
         self.__combo_box.currentTextChanged.connect(self.__actualizar_ventana)
         self.etiqueta1 = QLabel()
         self.line = QLineEdit()
-        self.line.setText(patente)
+    #    self.line.setText("ola")
         self.etiqueta1.setMaximumSize(400,100)
         self.line.textChanged.connect(self.__busco_auto)
+    #    self.line.setText(patente)
         self.__ventana_basica = almacen_ventana.basica
         self.__ventana_estandar = almacen_ventana.estandar
         self.__ventana_completa = almacen_ventana.completa
@@ -45,7 +46,7 @@ class CreacionServiceController(QWidget):
 
     def __busco_auto (self):
         texto = self.line.text()
-        marca = self.auto_db.get_one(texto)
+        marca = self.__auto_db.get_one(texto)
         if marca is not None:
             self.etiqueta1.setText("Patente ingresada correctamente")
             print(marca)
@@ -62,6 +63,7 @@ class CreacionServiceController(QWidget):
         print(l)
         if self.__validacion == True:
             service_db.commit(l,f"{self.line.text()}")
+            print("se inserto correctamente")
             print(l)
 
     def __actualizar_ventana (self):

@@ -3,7 +3,10 @@ from database.database import DataBase
 class AutosDb:
     def __init__(self):
         self.base = DataBase()
-        
+    
+    def get_one (self, patente):
+        return self.base.get(f"SELECT * FROM autos where patente='{patente}'")
+    
     def leer_autos(self,numero):
         return self.base.getAll("SELECT * FROM autos WHERE id_dueño = {}".format(numero))
     

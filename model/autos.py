@@ -2,21 +2,14 @@ from model.ui import Ui
 
 class AutosController(Ui):
     def __init__(self,main):
+        super().__init__()
         self._main=main
         self._lista_auto = []
-        self._editar = bool
-    
-    def validar_datos(self):
-        for variable in self._lista_auto:
-            if not variable:
-                raise Exception("campos obligatorios vacios")
-        
+        self._editar = bool    
         
     def agregar_autos(self):
-        self.limpiar_texto()
         self._main.label_77.setText("Agregar auto:")
         self.guardar_lista()
-        self.validar_datos()
         
         self.guardar_cambios()
     
@@ -45,7 +38,7 @@ class AutosController(Ui):
 
             self._lista_auto=[]
             self._id = self._main.table_user.item(self._main.table_user.currentRow(),0)
-            self._lista_auto.append(self._main.lineEdit_57.text()) #patente
+            self._lista_auto.append(self._main.lineEdit_57.text())#patente
             self._lista_auto.append(self._id.text()) # id_auto
             self._lista_auto.append(self._main.comboBox.currentText()) # Marca
             self._lista_auto.append(self._main.lineEdit_61.text()) # Modelo
@@ -53,14 +46,15 @@ class AutosController(Ui):
             self._lista_auto.append(self._main.lineEdit_58.text()) # Kilometros
             self._lista_auto.append(self._main.comboBox_2.currentText()) # Tipo de combustibl
             self._lista_auto.append(self._main.textEdit_3.toPlainText())
+            self.guardar_cambios()
     
     def guardar_cambios(self):
         if self._editar == True:
-            self._bd2.actualizar_auto(self._lista_auto)
+            self._db2.actualizar_auto(self._lista_auto)
             self._main.error_6.setStyleSheet("color:blue")
             self._main.error_6.setText("auto editado correctamente")
             self._editar = False
         else:    
-            self._bd2.agregar_autos(self._lista_auto)
+            self._db2.agregar_autos(self._lista_auto)
             self._main.error_6.setStyleSheet("color:blue")
             self._main.error_6.setText("auto cargado correctamente")

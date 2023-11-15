@@ -1,9 +1,11 @@
 from  PyQt5.QtWidgets import *
 from database.servicedao import ServiceDb 
 from controllers.controller_2 import CreacionServiceController, ServiceImpreso
+from model.ui import Ui
 
-class ServiceController():
+class ServiceController(Ui):
     def __init__(self, main):
+        super().__init__()
         self._main= main
         self._db3=ServiceDb()
         self._patente = None
@@ -40,8 +42,6 @@ class ServiceController():
         self._main.table_informes.selectRow(self._main.table_informes.currentRow())
         item = list(self._main.table_informes.selectedItems())
         self._service_impresion = ServiceImpreso(item[0])
-        self._main.setEnabled(False)
-        self._service_impresion.finished.connect(self.habilitar_ventana)
         self._service_impresion.show()
 
     def crear_service(self):
