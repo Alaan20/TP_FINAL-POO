@@ -1,4 +1,4 @@
-from database.DataBase import DataBase
+from database.database import DataBase
 
 class PersonaDb:
     def __init__(self):
