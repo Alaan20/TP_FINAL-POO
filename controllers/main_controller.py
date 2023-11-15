@@ -55,5 +55,6 @@ class Main(Ui):
             self._main.pushButton_15.clicked.connect(self._autos.borrar_autos)
             self._main.pushButton_11.clicked.connect(self._service.mostrar_service)
             self._main.pushButton_16.clicked.connect(self._service.crear_service)
+            self._main.pushButton_12.clicked.connect(lambda: self._main.stackedWidget.setCurrentIndex(5))
             main.show()
             app.exec()
