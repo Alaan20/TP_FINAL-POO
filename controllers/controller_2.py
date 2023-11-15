@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import *
 from views.builder_ventana import AlmacenVentana
-from database.database import ServiceDb, AutosDb
+from database.servicedao import ServiceDb
+from database.autodao import AutosDb
 import sys
 
 app = QApplication([])

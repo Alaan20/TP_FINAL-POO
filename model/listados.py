@@ -1,8 +1,5 @@
-from  PyQt5 import QtWidgets
 from model.permisos import *
 from model.ui import Ui
-from database.database import PersonaDb, AutosDb
-import time
 
 class ListadoController(Ui):
     def __init__(self,main):

@@ -1,22 +1,21 @@
 from typing import Any
-from  PyQt5 import QtWidgets, uic
+from model.ui import Ui
 import time
-from database.database import PersonaDb
+from database.usuariodao import PersonaDb
 from controllers.main_controller import *
 
-class LoginController(): # Logica de negocio 
-    
+class LoginController(Ui): # Logica de negocio 
     def __init__(self, login,main,app):
+        super().__init__()
         self.login_ui = login
         self.main = main
         self.app = app
-        self.db = PersonaDb()
 
     def gui_login(self):
         try:
             name = self.login_ui.user.text()
             password = self.login_ui.password.text()
-            row = self.db.leer(name,password)
+            row = self._db.leer(name,password)
             
             if len(name)==0 or len(password)==0:
                 raise Exception("Por favor, ingrese un usuario y contraseña")
@@ -49,7 +48,7 @@ class LoginController(): # Logica de negocio
             
             row[1] = name
             row[2] = password
-            if self.db.actualizar(row) is False:
+            if self._db.actualizar(row) is False:
                 raise Exception("Error, revise tu conexión a internet")
                 
             self.login_ui.error_1.setStyleSheet("color: green")

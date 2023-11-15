@@ -1,4 +1,5 @@
 from model.ui import Ui
+
 class Eliminar(Ui):
     def __init__(self,main):
         super().__init__()

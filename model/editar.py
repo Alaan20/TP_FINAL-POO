@@ -1,8 +1,9 @@
-from database.database import PersonaDb
+#from database.database import PersonaDb
 from model.ui import Ui
 
 class EditarController(Ui):
     def __init__(self,main):
+        super().__init__()
         self._main = main
 
     def editar_admin(self):

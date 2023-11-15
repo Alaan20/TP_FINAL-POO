@@ -1,7 +1,7 @@
 from controllers.login_controller import Login
 from views import *
 from  PyQt5 import QtWidgets, uic
-from database.database import PersonaDb
+from database.usuariodao import PersonaDb
 from model.permisos import *
 from model.login import *
 

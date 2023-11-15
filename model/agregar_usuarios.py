@@ -1,7 +1,8 @@
-from database.database import PersonaDb
+#from database.database import PersonaDb
 from model.ui import Ui
+
 class Agregar(Ui):
-    def __init__(self,main) -> None:
+    def __init__(self,main):
         super().__init__()
         self._main=main
         self._lista=[]

@@ -1,5 +1,5 @@
 from  PyQt5.QtWidgets import *
-from database.database import ServiceDb 
+from database.servicedao import ServiceDb 
 from controllers.controller_2 import CreacionServiceController, ServiceImpreso
 
 class ServiceController():

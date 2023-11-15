@@ -1,9 +1,13 @@
 from  PyQt5 import QtWidgets, uic
-from database.database import PersonaDb, AutosDb
+from database.autodao import AutosDb
+from database.usuariodao import PersonaDb
+from database.permisodao import PermisosDb
+
 
 class Ui:
     def __init__(self):
         self._db = PersonaDb()
+        self._db1 = PermisosDb()
         self._db2=AutosDb()
         self._id = None
         self._selected_rows = []
