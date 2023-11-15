@@ -1,38 +1,35 @@
 from PyQt5.QtWidgets import *
 from views.builder_ventana import *
-from database.auto_dao import AutoDao
-from database.service_dao import ServiceDao
+#from database.auto_dao import AutoDao
+from database.database import ServiceDb, AutosDb
 import sys
 
 app = QApplication([])
 
-class ServiceController(QWidget):
+service_db = ServiceDb()
+
+class CreacionServiceController(QWidget):
     
-    def __init__(self,patente):
+    def __init__(self, patente):
         super().__init__()
         self.gui_service(patente)
-        self.auto_dao = AutoDao()
-        self.__service_dao = ServiceDao()
+        self.auto_db = AutosDb()
         self.__validacion = bool
     
     def gui_service (self,patente):
         layout = QVBoxLayout()
         self.__combo_box = QComboBox()
         self.__combo_box.addItems(["Basico","Estandar","Completo"])
-        
         self.__combo_box.currentTextChanged.connect(self.__actualizar_ventana)
         self.etiqueta1 = QLabel()
         self.line = QLineEdit()
         self.line.setText(patente)
         self.etiqueta1.setMaximumSize(400,100)
         self.line.textChanged.connect(self.__busco_auto)
-        
         self.__ventana_basica = VentanaGeneral().armo_service("Basico")
         self.__ventana_estandar = VentanaGeneral().armo_service("Estandar")
         self.__ventana_completa = VentanaGeneral().armo_service("Completo")
-
         self.__btn = QPushButton("Guardar")
-
         layout.addWidget(self.__combo_box)
         layout.addWidget(self.line)
         layout.addWidget(self.etiqueta1)
@@ -40,7 +37,6 @@ class ServiceController(QWidget):
         layout.addWidget(self.__ventana_estandar)
         layout.addWidget(self.__ventana_completa)
         layout.addWidget(self.__btn)
-        
         self.__btn.pressed.connect(self.__guardo_datos)
         
         self.setLayout(layout)
@@ -49,7 +45,7 @@ class ServiceController(QWidget):
 
     def __busco_auto (self):
         texto = self.line.text()
-        marca = self.auto_dao.get_one(texto)
+        marca = self.auto_db.get_one(texto)
         if marca is not None:
             self.etiqueta1.setText("Patente ingresada correctamente")
             print(marca)
@@ -72,7 +68,7 @@ class ServiceController(QWidget):
             l.insert(0,"Completo")
         
         if self.__validacion == True:
-            self.__service_dao.commit(l,f"{self.line.text()}")
+            service_db.commit(l,f"{self.line.text()}")
             print(l)
 
     def __actualizar_ventana (self):
@@ -98,9 +94,21 @@ class ServiceController(QWidget):
         self.etiqueta1.setMaximumSize(500,15)
         self.etiqueta1.setMinimumSize(500,15)
 
-# class Service():
-#     def __init__(self,patente):
-#         self._patente = patente
-#         self.service_controller = ServiceController(patente)
-#         self.service_controller.show()
-#         app.exec()
+##Los separe en clases para evitar inconvenientes con los atributos no existentes
+class ServiceImpreso (QWidget):
+    
+    def __init__(self, id):
+        super().__init__()
+        self.imprimo_service(id)
+    
+    def imprimo_service (self, id):
+        layout2 = QVBoxLayout()
+        lista_informacion = list(service_db.get_by_id(id))
+        self.ventana_impresion = VentanaGeneral().armo_service_con_datos(lista_informacion)
+        layout2.addWidget(self.ventana_impresion)
+        self.__reinicio_ventana_impresion()  ##oculta todas las ventanas (nuevas y existentes)
+        self.ventana_impresion.show() ##es para mostrar la ventana nueva
+        self.setLayout(layout2)
+    
+    def __reinicio_ventana_impresion (self):
+        self.ventana_impresion.hide()
