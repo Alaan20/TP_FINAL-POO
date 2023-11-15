@@ -57,4 +57,3 @@ class Main(Ui):
             self._main.pushButton_16.clicked.connect(self._service.crear_service)
             self._main.pushButton_12.clicked.connect(lambda: self._main.stackedWidget.setCurrentIndex(5))
             main.show()
-            app.exec()
