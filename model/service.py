@@ -11,6 +11,9 @@ class ServiceController():
         self._service_creacion = CreacionServiceController
         self._service_impresion = ServiceImpreso
     
+    def habilitar_ventana(self):
+        self._main.setEnabled(True)
+    
     def mostrar_service(self):
         self._main.stackedWidget.setCurrentIndex(8)
         
@@ -37,8 +40,10 @@ class ServiceController():
         self._main.table_informes.selectRow(self._main.table_informes.currentRow())
         item = list(self._main.table_informes.selectedItems())
         self._service_impresion = ServiceImpreso(item[0])
+        self._main.setEnabled(False)
+        self._service_impresion.finished.connect(self.habilitar_ventana)
         self._service_impresion.show()
-    
+
     def crear_service(self):
         self._patente = self._main.table_auto.item(self._main.table_auto.currentRow(),0)
         self._service_creacion = CreacionServiceController(self._patente.text())
